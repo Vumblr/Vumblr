@@ -26,3 +26,9 @@ Time spent: ``
 
 
 
+![Wireframes]
+(wireframes/Screenspart1.png)
+
+![Wireframes]
+(wireframes/Screenspart2.png)
+
