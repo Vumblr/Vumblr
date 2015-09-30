@@ -10,9 +10,12 @@ import UIKit
 import AVKit
 import AVFoundation
 import MobileCoreServices
+import VideoToolbox
 
 
 class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var mixComposition = AVMutableComposition()
     
     
     @IBOutlet weak var playerView: PlayerView!
@@ -26,6 +29,12 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addSticker() {
+        let stickerTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeText, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+        
+//        stickerTrack.insert
     }
     
     func presentPicker() {
