@@ -11,11 +11,13 @@ Time spent: ``
 - [ ] User can import a video from camera roll
 - [ ] Record a video
 - [ ] add still images on top of video
-- [ ] add text
-- [ ] encoding to a new video ( save as new video ) 
 - [ ] Upload to Youtube
+
 - [ ] Animation when the app launch and on clicking on a button
 - [ ] access your previous works
+
+- [ ] add text
+- [ ] encoding to a new video ( save as new video ) 
 
 #### Optionals
 
