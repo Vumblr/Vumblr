@@ -8,16 +8,17 @@ Time spent: ``
 
 #### Required
 
-
+##### Core
 - [ ] User can import a video from camera roll
 - [ ] Record a video
 - [ ] add still images on top of video
 - [ ] access your previous works
+- [ ] encoding to a new video ( save as new video ) 
 
+##### Bonus
 - [ ] Upload to Youtube
 - [ ] Animation when the app launch and on clicking on a button
 - [ ] add text
-- [ ] encoding to a new video ( save as new video ) 
 
 #### Optionals
 
