@@ -17,17 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
-                                <rect key="frame" x="102" y="230" width="116" height="30"/>
+                                <rect key="frame" x="102" y="234" width="116" height="30"/>
                                 <state key="normal" title="Record and Save"/>
                                 <connections>
                                     <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
-                                <rect key="frame" x="117" y="268" width="87" height="30"/>
-                                <state key="normal" title="Merge Video"/>
-                                <connections>
-                                    <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
@@ -35,6 +28,20 @@
                                 <state key="normal" title="Select and Play"/>
                                 <connections>
                                     <segue destination="8WG-g4-wdp" kind="push" id="k00-uO-kyX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
+                                <rect key="frame" x="91" y="307" width="140" height="30"/>
+                                <state key="normal" title="Add Sticker to Video"/>
+                                <connections>
+                                    <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
+                                <rect key="frame" x="117" y="269" width="87" height="30"/>
+                                <state key="normal" title="Merge Video"/>
+                                <connections>
+                                    <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -64,6 +71,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUP-JM-Ou5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="725" y="1100"/>
+        </scene>
+        <!--Edit Video View Controller-->
+        <scene sceneID="K1b-xT-2zO">
+            <objects>
+                <viewController id="Qva-cR-9hk" customClass="EditVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PfW-B8-cfd"/>
+                        <viewControllerLayoutGuide type="bottom" id="juZ-WX-Wpb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5CA-ef-efc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="VideoTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="254"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlw-Cq-XEe">
+                                <rect key="frame" x="121" y="408" width="79" height="30"/>
+                                <state key="normal" title="Add Sticker"/>
+                                <connections>
+                                    <action selector="onClickAddSticker:" destination="Qva-cR-9hk" eventType="touchUpInside" id="zly-hX-EKY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aQn-u5-VmH"/>
+                    <connections>
+                        <outlet property="playerView" destination="Wce-KU-tN9" id="1qj-k8-MkX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TY4-9a-wYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="1344"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
