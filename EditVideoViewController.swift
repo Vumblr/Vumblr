@@ -94,7 +94,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
         // add text
         
-        let title = String("Testing this subtitle")
+        let title = String("💩")
         
         let titleLayer = CATextLayer()
         titleLayer.string = title
@@ -119,6 +119,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
         parentLayer.addSublayer(backgroundLayer)
         parentLayer.addSublayer(videoLayer)
+        parentLayer.addSublayer(titleLayer)
         
         // 3. make animation
         
