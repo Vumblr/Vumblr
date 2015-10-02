@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:VideoTest.xcodeproj">
+      location = "self:/Users/lea/Dropbox/TUMBLR/IOSTraining/Vumblr/Vumblr.xcodeproj">
    </FileRef>
 </Workspace>
