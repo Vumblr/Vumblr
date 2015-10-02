@@ -31,8 +31,9 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func addSticker() {
-        var mergeComposition : AVMutableComposition = AVMutableComposition()
-        var trackVideo : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
+        print(selectedFileUrl)
+        let mergeComposition : AVMutableComposition = AVMutableComposition()
+        let trackVideo : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
         //var trackAudio : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
         
         // 2. Add a bank for theme insertion later
@@ -44,7 +45,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         let sourceAsset = AVURLAsset(URL: selectedFileUrl!, options: nil)
         let sourceDuration = CMTimeRangeMake(kCMTimeZero, sourceAsset.duration)
         let vtrack: AVAssetTrack? = sourceAsset.tracksWithMediaType(AVMediaTypeVideo)[0] as AVAssetTrack
-        let atrack: AVAssetTrack? = sourceAsset.tracksWithMediaType(AVMediaTypeAudio)[0] as AVAssetTrack
+//        let atrack: AVAssetTrack? = sourceAsset.tracksWithMediaType(AVMediaTypeAudio)[0] as AVAssetTrack
         
         if (vtrack == nil) {
             return
@@ -65,7 +66,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 
         // 4. Add subtitles (we call it theme)
         
-        var themeVideoComposition : AVMutableVideoComposition = AVMutableVideoComposition(propertiesOfAsset: sourceAsset)
+        let themeVideoComposition : AVMutableVideoComposition = AVMutableVideoComposition(propertiesOfAsset: sourceAsset)
         
         // 4.1 - Create AVMutableVideoCompositionInstruction
         
@@ -95,7 +96,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
         let title = String("Testing this subtitle")
         
-        var titleLayer = CATextLayer()
+        let titleLayer = CATextLayer()
         titleLayer.string = title
         titleLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
         let fontName: CFStringRef = "Helvetica-Bold"
@@ -104,15 +105,15 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         titleLayer.alignmentMode = kCAAlignmentCenter
         titleLayer.foregroundColor = UIColor.whiteColor().CGColor
         
-        var backgroundLayer = CALayer()
+        let backgroundLayer = CALayer()
         backgroundLayer.frame = CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
         backgroundLayer.masksToBounds = true
         backgroundLayer.addSublayer(titleLayer)
         
         // 2. set parent layer and video layer
         
-        var parentLayer = CALayer()
-        var videoLayer = CALayer()
+        let parentLayer = CALayer()
+        let videoLayer = CALayer()
         parentLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
         videoLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
         
