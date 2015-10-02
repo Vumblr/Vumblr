@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,47 +16,117 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
-                                <rect key="frame" x="102" y="234" width="116" height="30"/>
-                                <state key="normal" title="Record and Save"/>
-                                <connections>
-                                    <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
-                                <rect key="frame" x="107" y="196" width="106" height="30"/>
-                                <state key="normal" title="Select and Play"/>
-                                <connections>
-                                    <segue destination="8WG-g4-wdp" kind="push" id="k00-uO-kyX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
-                                <rect key="frame" x="91" y="307" width="140" height="30"/>
-                                <state key="normal" title="Add Sticker to Video"/>
-                                <connections>
-                                    <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
-                                <rect key="frame" x="117" y="269" width="87" height="30"/>
-                                <state key="normal" title="Merge Video"/>
-                                <connections>
-                                    <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yih-fh-bfd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Rectangle 1 + bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ibu-Kn-uX8">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                        <state key="normal" title="Merge Video">
+                                            <color key="titleColor" red="1" green="0.96312792900345601" blue="0.97942067777664621" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                        <state key="normal" title="Record and Save">
+                                            <color key="titleColor" red="1" green="0.96312792900345601" blue="0.97942067777664621" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vumblr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-Yt-whJ">
+                                        <rect key="frame" x="87.5" y="264" width="138" height="44"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="38"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Iiq-9g-HLz">
+                                        <rect key="frame" x="51" y="128" width="82" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="82" id="7un-Tk-kHH"/>
+                                            <constraint firstAttribute="height" constant="82" id="VqY-lN-86P"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="works" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-7Y-xEc">
+                                        <rect key="frame" x="187" y="128" width="82" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="Wdu-aG-Aww"/>
+                                            <constraint firstAttribute="width" constant="82" id="dQu-ce-2h6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
+                                        <rect key="frame" x="51" y="128" width="82" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="82" id="L14-PY-6SK"/>
+                                            <constraint firstAttribute="height" constant="82" id="UCn-iw-bZe"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" red="1" green="0.96312792900345601" blue="0.97942067777664621" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="8WG-g4-wdp" kind="push" id="k00-uO-kyX"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgs-L7-3eU">
+                                        <rect key="frame" x="189" y="102.5" width="77.5" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONE-Ob-wZe">
+                                        <rect key="frame" x="70" y="102" width="44" height="19"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.27058823529411763" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="f1K-ik-YBi" firstAttribute="leading" secondItem="yih-fh-bfd" secondAttribute="leading" constant="51" id="Bc8-L1-x3P"/>
+                                    <constraint firstItem="f1K-ik-YBi" firstAttribute="top" secondItem="yih-fh-bfd" secondAttribute="top" constant="128" id="FVI-9V-Ejp"/>
+                                    <constraint firstItem="Iiq-9g-HLz" firstAttribute="leading" secondItem="yih-fh-bfd" secondAttribute="leading" constant="51" id="KVC-hb-BwH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ibu-Kn-uX8" secondAttribute="bottom" id="LxI-Q5-Q46"/>
+                                    <constraint firstItem="QP2-7Y-xEc" firstAttribute="top" secondItem="yih-fh-bfd" secondAttribute="top" constant="128" id="Mez-st-JTN"/>
+                                    <constraint firstAttribute="trailing" secondItem="QP2-7Y-xEc" secondAttribute="trailing" constant="51" id="SjQ-jh-lVx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cgs-L7-3eU" secondAttribute="trailing" constant="53" id="X7R-F1-hAz"/>
+                                    <constraint firstItem="OJn-Yt-whJ" firstAttribute="centerY" secondItem="yih-fh-bfd" secondAttribute="centerY" constant="2" id="a5u-Nd-F8u"/>
+                                    <constraint firstItem="OJn-Yt-whJ" firstAttribute="centerX" secondItem="yih-fh-bfd" secondAttribute="centerX" constant="-5.5" id="cDC-PL-G3n"/>
+                                    <constraint firstItem="f1K-ik-YBi" firstAttribute="top" secondItem="yih-fh-bfd" secondAttribute="top" constant="128" id="do8-1b-IgG"/>
+                                    <constraint firstItem="Ibu-Kn-uX8" firstAttribute="leading" secondItem="yih-fh-bfd" secondAttribute="leading" id="dpY-eg-scf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ibu-Kn-uX8" secondAttribute="trailing" id="jUn-TY-Qxm"/>
+                                    <constraint firstItem="QP2-7Y-xEc" firstAttribute="top" secondItem="Cgs-L7-3eU" secondAttribute="bottom" constant="7" id="jlc-so-Ow9"/>
+                                    <constraint firstItem="Iiq-9g-HLz" firstAttribute="top" secondItem="yih-fh-bfd" secondAttribute="top" constant="128" id="qf7-QP-WYk"/>
+                                    <constraint firstItem="Ibu-Kn-uX8" firstAttribute="top" secondItem="yih-fh-bfd" secondAttribute="top" id="xSd-eR-gAQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yih-fh-bfd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5mT-dx-s4D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yih-fh-bfd" secondAttribute="bottom" id="T6c-Vi-esk"/>
+                            <constraint firstItem="yih-fh-bfd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZBP-mi-PTn"/>
+                            <constraint firstAttribute="trailing" secondItem="yih-fh-bfd" secondAttribute="trailing" id="tMW-uX-pty"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Deg-sD-K06"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="406"/>
+            <point key="canvasLocation" x="725" y="467"/>
         </scene>
         <!--Merge Video View Controller-->
         <scene sceneID="xYi-Bb-Fup">
             <objects>
-                <viewController id="4sc-ds-v3e" customClass="MergeVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4sc-ds-v3e" customClass="MergeVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MYy-3g-Pul"/>
                         <viewControllerLayoutGuide type="bottom" id="DCU-Ia-IDI"/>
@@ -72,45 +142,10 @@
             </objects>
             <point key="canvasLocation" x="725" y="1100"/>
         </scene>
-        <!--Edit Video View Controller-->
-        <scene sceneID="K1b-xT-2zO">
-            <objects>
-                <viewController id="Qva-cR-9hk" customClass="EditVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PfW-B8-cfd"/>
-                        <viewControllerLayoutGuide type="bottom" id="juZ-WX-Wpb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5CA-ef-efc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="VideoTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="320" height="254"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlw-Cq-XEe">
-                                <rect key="frame" x="121" y="408" width="79" height="30"/>
-                                <state key="normal" title="Add Sticker"/>
-                                <connections>
-                                    <action selector="onClickAddSticker:" destination="Qva-cR-9hk" eventType="touchUpInside" id="zly-hX-EKY"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aQn-u5-VmH"/>
-                    <connections>
-                        <outlet property="playerView" destination="Wce-KU-tN9" id="1qj-k8-MkX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TY4-9a-wYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1093" y="1344"/>
-        </scene>
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
             <objects>
-                <viewController id="ZV2-VC-Fjf" customClass="RecordVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZV2-VC-Fjf" customClass="RecordVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tyg-Jz-mad"/>
                         <viewControllerLayoutGuide type="bottom" id="5DD-Qw-Jpo"/>
@@ -129,7 +164,7 @@
         <!--Play Video View Controller-->
         <scene sceneID="HKW-sL-HUt">
             <objects>
-                <viewController id="8WG-g4-wdp" customClass="PlayVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8WG-g4-wdp" customClass="PlayVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ptJ-A9-vzT"/>
                         <viewControllerLayoutGuide type="bottom" id="4Ra-1v-hCa"/>
@@ -173,4 +208,9 @@
             <point key="canvasLocation" x="162" y="406"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Rectangle 1 + bg" width="320" height="568"/>
+        <image name="camera" width="82" height="82"/>
+        <image name="works" width="82" height="82"/>
+    </resources>
 </document>
