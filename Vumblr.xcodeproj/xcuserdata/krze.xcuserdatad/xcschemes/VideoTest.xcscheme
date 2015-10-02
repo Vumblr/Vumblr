@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4EB6D51E1BB726490037B4A2"
-               BuildableName = "VideoTest.app"
-               BlueprintName = "VideoTest"
-               ReferencedContainer = "container:VideoTest.xcodeproj">
+               BuildableName = "Vumblr.app"
+               BlueprintName = "Vumblr"
+               ReferencedContainer = "container:Vumblr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4EB6D51E1BB726490037B4A2"
-            BuildableName = "VideoTest.app"
-            BlueprintName = "VideoTest"
-            ReferencedContainer = "container:VideoTest.xcodeproj">
+            BuildableName = "Vumblr.app"
+            BlueprintName = "Vumblr"
+            ReferencedContainer = "container:Vumblr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4EB6D51E1BB726490037B4A2"
-            BuildableName = "VideoTest.app"
-            BlueprintName = "VideoTest"
-            ReferencedContainer = "container:VideoTest.xcodeproj">
+            BuildableName = "Vumblr.app"
+            BlueprintName = "Vumblr"
+            ReferencedContainer = "container:Vumblr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4EB6D51E1BB726490037B4A2"
-            BuildableName = "VideoTest.app"
-            BlueprintName = "VideoTest"
-            ReferencedContainer = "container:VideoTest.xcodeproj">
+            BuildableName = "Vumblr.app"
+            BlueprintName = "Vumblr"
+            ReferencedContainer = "container:Vumblr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

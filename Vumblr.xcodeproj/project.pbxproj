@@ -30,7 +30,7 @@
 		4E741F141BBC89830013F21F /* EditVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVideoViewController.swift; sourceTree = "<group>"; };
 		4E741F191BBC8B450013F21F /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		4E741F1C1BBC8B840013F21F /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		4EB6D51F1BB726490037B4A2 /* VideoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB6D51F1BB726490037B4A2 /* Vumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB6D5221BB726490037B4A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB6D5241BB726490037B4A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EB6D5271BB726490037B4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		4EB6D5201BB726490037B4A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EB6D51F1BB726490037B4A2 /* VideoTest.app */,
+				4EB6D51F1BB726490037B4A2 /* Vumblr.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4EB6D51E1BB726490037B4A2 /* VideoTest */ = {
+		4EB6D51E1BB726490037B4A2 /* Vumblr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4EB6D5311BB726490037B4A2 /* Build configuration list for PBXNativeTarget "VideoTest" */;
+			buildConfigurationList = 4EB6D5311BB726490037B4A2 /* Build configuration list for PBXNativeTarget "Vumblr" */;
 			buildPhases = (
 				4EB6D51B1BB726490037B4A2 /* Sources */,
 				4EB6D51C1BB726490037B4A2 /* Frameworks */,
@@ -146,9 +146,9 @@
 			);
 			dependencies = (
 			);
-			name = VideoTest;
+			name = Vumblr;
 			productName = VideoTest;
-			productReference = 4EB6D51F1BB726490037B4A2 /* VideoTest.app */;
+			productReference = 4EB6D51F1BB726490037B4A2 /* Vumblr.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4EB6D51A1BB726490037B4A2 /* Build configuration list for PBXProject "VideoTest" */;
+			buildConfigurationList = 4EB6D51A1BB726490037B4A2 /* Build configuration list for PBXProject "Vumblr" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -179,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4EB6D51E1BB726490037B4A2 /* VideoTest */,
+				4EB6D51E1BB726490037B4A2 /* Vumblr */,
 			);
 		};
 /* End PBXProject section */
@@ -323,8 +323,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VideoTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tumblr.VideoTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = tumblr.Vumblr;
+				PRODUCT_NAME = Vumblr;
 			};
 			name = Debug;
 		};
@@ -335,15 +335,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VideoTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tumblr.VideoTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = tumblr.Vumblr;
+				PRODUCT_NAME = Vumblr;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4EB6D51A1BB726490037B4A2 /* Build configuration list for PBXProject "VideoTest" */ = {
+		4EB6D51A1BB726490037B4A2 /* Build configuration list for PBXProject "Vumblr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EB6D52F1BB726490037B4A2 /* Debug */,
@@ -352,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4EB6D5311BB726490037B4A2 /* Build configuration list for PBXNativeTarget "VideoTest" */ = {
+		4EB6D5311BB726490037B4A2 /* Build configuration list for PBXNativeTarget "Vumblr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EB6D5321BB726490037B4A2 /* Debug */,
