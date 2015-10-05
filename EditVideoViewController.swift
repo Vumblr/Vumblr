@@ -18,10 +18,19 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     var selectedFileUrl: NSURL?
     
     @IBOutlet weak var playerView: PlayerView!
+    @IBOutlet weak var trayView: UIView!
+    var trayOriginalCenter: CGPoint!
+    var trayViewUpY: CGFloat?
+    var trayViewDownY: CGFloat?
+
+    @IBOutlet weak var trayArrowImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        trayViewUpY =  CGFloat(560)
+        trayViewDownY = CGFloat(745)
         presentPicker()
+
         // Do any additional setup after loading the view.
     }
 
@@ -29,7 +38,9 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
     func addSticker() {
         print(selectedFileUrl)
         let mergeComposition : AVMutableComposition = AVMutableComposition()
@@ -194,6 +205,39 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
+    @IBAction func onPanTrayView(sender: UIPanGestureRecognizer) {
+        let point = sender.locationInView(trayView)
+        let velocity = sender.velocityInView(trayView)
+        let translation = sender.translationInView(trayView)
+
+        if sender.state == UIGestureRecognizerState.Began {
+            print("Gesture began at: \(point)")
+            trayOriginalCenter = trayView.center
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            print("Gesture changed at: \(point)")
+            let newUpY = trayOriginalCenter.y + translation.y
+            if newUpY < self.trayViewUpY! {
+                trayView.center = CGPoint(x: trayOriginalCenter.x, y: self.trayViewUpY!)
+            } else {
+                trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
+            }
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            print("Gesture ended at: \(point)")
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                if velocity.y > 0 {
+                    print("move down", terminator: "")
+                    self.trayView.center = CGPoint(x: self.trayOriginalCenter.x, y: self.trayViewDownY!)
+                    self.trayArrowImageView.transform =
+                        CGAffineTransformMakeRotation(CGFloat(M_PI))
+                } else {
+                    print("move up", terminator: "")
+                    self.trayView.center = CGPoint(x: self.trayOriginalCenter.x, y: self.trayViewUpY!)
+                    self.trayArrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(0))
+                }
+            })
+        }
+    }
+
     @IBAction func onClickAddSticker(sender: AnyObject) {
         print("Added sticker")
         addSticker()
