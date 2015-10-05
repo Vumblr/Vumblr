@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -56,7 +56,7 @@
         <!--Merge Video View Controller-->
         <scene sceneID="xYi-Bb-Fup">
             <objects>
-                <viewController id="4sc-ds-v3e" customClass="MergeVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4sc-ds-v3e" customClass="MergeVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MYy-3g-Pul"/>
                         <viewControllerLayoutGuide type="bottom" id="DCU-Ia-IDI"/>
@@ -75,7 +75,7 @@
         <!--Edit Video View Controller-->
         <scene sceneID="K1b-xT-2zO">
             <objects>
-                <viewController id="Qva-cR-9hk" customClass="EditVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qva-cR-9hk" customClass="EditVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PfW-B8-cfd"/>
                         <viewControllerLayoutGuide type="bottom" id="juZ-WX-Wpb"/>
@@ -84,7 +84,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="VideoTest" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="Vumblr" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="254"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -110,7 +110,7 @@
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
             <objects>
-                <viewController id="ZV2-VC-Fjf" customClass="RecordVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZV2-VC-Fjf" customClass="RecordVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tyg-Jz-mad"/>
                         <viewControllerLayoutGuide type="bottom" id="5DD-Qw-Jpo"/>
@@ -129,7 +129,7 @@
         <!--Play Video View Controller-->
         <scene sceneID="HKW-sL-HUt">
             <objects>
-                <viewController id="8WG-g4-wdp" customClass="PlayVideoViewController" customModule="VideoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8WG-g4-wdp" customClass="PlayVideoViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ptJ-A9-vzT"/>
                         <viewControllerLayoutGuide type="bottom" id="4Ra-1v-hCa"/>
