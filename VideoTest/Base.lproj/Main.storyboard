@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -36,12 +36,6 @@
                                             <color key="titleColor" red="1" green="0.96312792899999999" blue="0.97942067779999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vumblr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-Wc-f8S">
-                                        <rect key="frame" x="92" y="262" width="136" height="44"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="38"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-eV-8Yj">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
                                     </imageView>
@@ -93,6 +87,12 @@
                                             <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vumblr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-Wc-f8S">
+                                        <rect key="frame" x="92" y="274" width="136" height="44"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="38"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.27058823529999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="406"/>
+            <point key="canvasLocation" x="645" y="295"/>
         </scene>
         <!--Merge Video View Controller-->
         <scene sceneID="xYi-Bb-Fup">
@@ -137,13 +137,43 @@
                     <view key="view" contentMode="scaleToFill" id="5EO-As-89E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36M-eI-fTg">
+                                <rect key="frame" x="99" y="243" width="88" height="30"/>
+                                <state key="normal" title="Load Video 1"/>
+                                <connections>
+                                    <action selector="loadAssetOne:" destination="4sc-ds-v3e" eventType="touchUpInside" id="4Cl-hz-x2I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-eM-RiP">
+                                <rect key="frame" x="98" y="306" width="90" height="30"/>
+                                <state key="normal" title="Load Video 2"/>
+                                <connections>
+                                    <action selector="loadAssetTwo:" destination="4sc-ds-v3e" eventType="touchUpInside" id="1MU-8b-XUm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piv-bE-Kl3">
+                                <rect key="frame" x="105" y="364" width="77" height="30"/>
+                                <state key="normal" title="Load Audio"/>
+                                <connections>
+                                    <action selector="loadAudio:" destination="4sc-ds-v3e" eventType="touchUpInside" id="lDj-FS-5aE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-Ih-CPz">
+                                <rect key="frame" x="81" y="424" width="95" height="30"/>
+                                <state key="normal" title="Merge Videos"/>
+                                <connections>
+                                    <action selector="merge:" destination="4sc-ds-v3e" eventType="touchUpInside" id="qw8-JO-CSa"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="eSD-uM-wlx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUP-JM-Ou5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725" y="1100"/>
+            <point key="canvasLocation" x="687" y="1284"/>
         </scene>
         <!--Edit Video View Controller-->
         <scene sceneID="K1b-xT-2zO">
@@ -282,7 +312,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1093" y="1344"/>
+            <point key="canvasLocation" x="1093" y="1447"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
@@ -295,9 +325,30 @@
                     <view key="view" contentMode="scaleToFill" id="jN9-Zb-T8N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-1a-CHi">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wve-m6-EWI">
+                                <rect key="frame" x="136" y="493" width="49" height="30"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="onRecordVideoButton:" destination="ZV2-VC-Fjf" eventType="touchUpInside" id="t5W-jg-G6P"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Mgm-1a-CHi" secondAttribute="trailing" id="C2Y-8V-bga"/>
+                            <constraint firstItem="Mgm-1a-CHi" firstAttribute="top" secondItem="Tyg-Jz-mad" secondAttribute="bottom" id="V7n-mv-aXU"/>
+                            <constraint firstItem="Mgm-1a-CHi" firstAttribute="leading" secondItem="jN9-Zb-T8N" secondAttribute="leading" id="bNY-hW-kRA"/>
+                            <constraint firstItem="5DD-Qw-Jpo" firstAttribute="top" secondItem="Mgm-1a-CHi" secondAttribute="bottom" id="c4G-DP-yGU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YHa-5f-orv"/>
+                    <connections>
+                        <outlet property="recordImageView" destination="Mgm-1a-CHi" id="twp-fB-QTP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPR-Me-OzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
