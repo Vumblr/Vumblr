@@ -24,6 +24,7 @@
 		4EB6D5421BB727EF0037B4A2 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB6D5411BB727EF0037B4A2 /* PlayVideoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB6D5441BB728010037B4A2 /* RecordVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB6D5431BB728010037B4A2 /* RecordVideoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB6D5461BB728180037B4A2 /* MergeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB6D5451BB728180037B4A2 /* MergeVideoViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B5C751911BC36D9F00775BFF /* AVFoundationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C751901BC36D9F00775BFF /* AVFoundationClient.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		4EB6D5411BB727EF0037B4A2 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
 		4EB6D5431BB728010037B4A2 /* RecordVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVideoViewController.swift; sourceTree = "<group>"; };
 		4EB6D5451BB728180037B4A2 /* MergeVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeVideoViewController.swift; sourceTree = "<group>"; };
+		B5C751901BC36D9F00775BFF /* AVFoundationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFoundationClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		4EB6D5211BB726490037B4A2 /* VideoTest */ = {
 			isa = PBXGroup;
 			children = (
+				B5C7518F1BC36D7100775BFF /* API */,
 				4E741F1B1BBC8B650013F21F /* Views */,
 				4EB6D5471BB7281D0037B4A2 /* View Controllers */,
 				4EB6D5221BB726490037B4A2 /* AppDelegate.swift */,
@@ -129,6 +132,14 @@
 			);
 			name = "View Controllers";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		B5C7518F1BC36D7100775BFF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B5C751901BC36D9F00775BFF /* AVFoundationClient.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C751911BC36D9F00775BFF /* AVFoundationClient.swift in Sources */,
 				4EB6D5251BB726490037B4A2 /* ViewController.swift in Sources */,
 				4EB6D5461BB728180037B4A2 /* MergeVideoViewController.swift in Sources */,
 				4E741F1D1BBC8B840013F21F /* PlayerView.swift in Sources */,
