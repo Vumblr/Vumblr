@@ -47,4 +47,55 @@ class AVFoundationClient {
         }
     }
     
+    func orientationFromTransform(transform: CGAffineTransform) -> (orientation: UIImageOrientation, isPortrait: Bool) {
+        var assetOrientation = UIImageOrientation.Up
+        var isPortrait = false
+        if transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0 {
+            assetOrientation = .Right
+            isPortrait = true
+        } else if transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0 {
+            assetOrientation = .Left
+            isPortrait = true
+        } else if transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0 {
+            assetOrientation = .Up
+        } else if transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0 {
+            assetOrientation = .Down
+        }
+        return (assetOrientation, isPortrait)
+    }
+    
+    func videoCompositionInstructionForTrack(track: AVCompositionTrack, asset: AVAsset, scaleRatio : CGFloat) -> AVMutableVideoCompositionLayerInstruction {
+        // 1
+        let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
+        // 2
+        let assetTrack = asset.tracksWithMediaType(AVMediaTypeVideo)[0] 
+        
+        // 3
+        let transform = assetTrack.preferredTransform
+        let assetInfo = orientationFromTransform(transform)
+        var scaleToFitRatio = UIScreen.mainScreen().bounds.width / assetTrack.naturalSize.width 
+        
+        if assetInfo.isPortrait {
+            // 4
+            scaleToFitRatio = (UIScreen.mainScreen().bounds.width / assetTrack.naturalSize.height * scaleRatio)
+            let scaleFactor = CGAffineTransformMakeScale(scaleToFitRatio, scaleToFitRatio)
+            instruction.setTransform(CGAffineTransformConcat(assetTrack.preferredTransform, scaleFactor),
+                atTime: kCMTimeZero)
+        } else {
+            // 5
+            let scaleFactor = CGAffineTransformMakeScale(scaleToFitRatio * scaleRatio, scaleToFitRatio * scaleRatio)
+            var concat = CGAffineTransformConcat(CGAffineTransformConcat(assetTrack.preferredTransform, scaleFactor), CGAffineTransformMakeTranslation(0, UIScreen.mainScreen().bounds.width / 2))
+            if assetInfo.orientation == .Down {
+                let fixUpsideDown = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                let windowBounds = UIScreen.mainScreen().bounds
+                let yFix = assetTrack.naturalSize.height + windowBounds.height
+                let centerFix = CGAffineTransformMakeTranslation(assetTrack.naturalSize.width, yFix)
+                concat = CGAffineTransformConcat(CGAffineTransformConcat(fixUpsideDown, centerFix), scaleFactor)
+            }
+            instruction.setTransform(concat, atTime: kCMTimeZero)
+        }
+        
+        return instruction
+    }
+    
 }
