@@ -38,16 +38,14 @@
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-eV-8Yj">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="dtT-JK-Uf1" appends="YES" id="ZSD-3h-Eqh"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="works" translatesAutoresizingMaskIntoConstraints="NO" id="vtr-pk-rRC">
                                         <rect key="frame" x="187" y="128" width="82" height="82"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yks-iv-oa7">
-                                        <rect key="frame" x="51" y="128" width="82" height="82"/>
-                                        <state key="normal">
-                                            <color key="titleColor" red="1" green="0.96312792899999999" blue="0.97942067779999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj2-95-ING">
                                         <rect key="frame" x="189" y="103" width="78" height="19"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
@@ -103,10 +101,7 @@
                                     <constraint firstItem="GAW-Wc-f8S" firstAttribute="centerY" secondItem="NJb-G8-u0B" secondAttribute="centerY" id="a0y-r7-VoG"/>
                                     <constraint firstItem="7CE-aE-ygF" firstAttribute="top" secondItem="NJb-G8-u0B" secondAttribute="top" id="cKq-Cc-T8L"/>
                                     <constraint firstAttribute="trailing" secondItem="Sj2-95-ING" secondAttribute="trailing" constant="53" id="cwM-V5-jRW"/>
-                                    <constraint firstItem="yks-iv-oa7" firstAttribute="leading" secondItem="NJb-G8-u0B" secondAttribute="leading" constant="51" id="dKx-1i-fn4"/>
-                                    <constraint firstItem="hmK-wj-L6f" firstAttribute="leading" secondItem="NJb-G8-u0B" secondAttribute="leading" constant="51" id="daq-Bz-Md3"/>
                                     <constraint firstItem="7CE-aE-ygF" firstAttribute="leading" secondItem="NJb-G8-u0B" secondAttribute="leading" id="f81-gi-O8X"/>
-                                    <constraint firstItem="yks-iv-oa7" firstAttribute="top" secondItem="aYD-HH-hHm" secondAttribute="bottom" constant="7" id="jY9-4f-7YB"/>
                                     <constraint firstAttribute="trailing" secondItem="vtr-pk-rRC" secondAttribute="trailing" constant="51" id="lJV-iG-baY"/>
                                     <constraint firstItem="vtr-pk-rRC" firstAttribute="top" secondItem="Sj2-95-ING" secondAttribute="bottom" constant="6" id="rut-bt-VTU"/>
                                 </constraints>
@@ -121,8 +116,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Deg-sD-K06"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="videoImg" destination="4ZL-eV-8Yj" id="UaT-Ey-fHf"/>
+                        <outlet property="workImg" destination="vtr-pk-rRC" id="A6F-Yr-lGw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dtT-JK-Uf1">
+                    <connections>
+                        <segue destination="Qva-cR-9hk" kind="push" id="85h-V7-fNV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="645" y="295"/>
         </scene>
@@ -312,7 +317,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1093" y="1447"/>
+            <point key="canvasLocation" x="1108" y="406"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
@@ -352,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPR-Me-OzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="680"/>
+            <point key="canvasLocation" x="1129" y="1121"/>
         </scene>
         <!--Play Video View Controller-->
         <scene sceneID="HKW-sL-HUt">
@@ -380,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1HS-WF-iJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="37"/>
+            <point key="canvasLocation" x="1129" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkt-Pg-kLA">

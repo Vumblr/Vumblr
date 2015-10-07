@@ -2,8 +2,8 @@
 //  PlayVideoViewController.swift
 //  VideoTest
 //
-//  Created by Ken Krzeminski on 9/26/15.
-//  Copyright © 2015 Ken Krzeminski. All rights reserved.
+//  Created by Lea Sabban on 9/26/15.
+//  Copyright © 2015 Lea Sabban. All rights reserved.
 //
 
 import UIKit
