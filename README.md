@@ -28,8 +28,8 @@ Time spent: ``
 - [ ] undersand how keyframe work and try using it 
 
 
-### UI TEMPLATE
-http://i.imgur.com/PYo9XQE.png?1
+![Wireframes]
+(UIApp.png)
 
 ![Wireframes]
 (wireframes/Screenspart1.png)
