@@ -9,15 +9,15 @@ Time spent: ``
 #### Required
 
 ##### Core
-- [ ] User can import a video from camera roll
+- [x] User can import a video from camera roll
 - [ ] Record a video
-- [ ] add still images on top of video
+- [x] add still images on top of video
+- [x] Animation when the app launch and on clicking on a button
 - [ ] access your previous works
 - [ ] encoding to a new video ( save as new video ) 
 
 ##### Bonus
 - [ ] Upload to Youtube
-- [ ] Animation when the app launch and on clicking on a button
 - [ ] add text
 
 #### Optionals
@@ -28,6 +28,8 @@ Time spent: ``
 - [ ] undersand how keyframe work and try using it 
 
 
+![Wireframes]
+http://imgur.com/PYo9XQE
 
 ![Wireframes]
 (wireframes/Screenspart1.png)
