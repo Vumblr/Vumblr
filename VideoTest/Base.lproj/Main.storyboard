@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -58,28 +58,28 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
                                         <rect key="frame" x="8" y="527" width="87" height="30"/>
                                         <state key="normal" title="Merge Video"/>
                                         <connections>
                                             <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
                                         <rect key="frame" x="8" y="504" width="116" height="30"/>
                                         <state key="normal" title="Record and Save"/>
                                         <connections>
                                             <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
                                         <rect key="frame" x="8" y="478" width="106" height="30"/>
                                         <state key="normal" title="Select and Play"/>
                                         <connections>
                                             <segue destination="8WG-g4-wdp" kind="push" id="k00-uO-kyX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
                                         <connections>
                                             <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
@@ -292,6 +292,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.17647058823529413" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="juZ-WX-Wpb" firstAttribute="top" secondItem="eP7-6D-CKA" secondAttribute="bottom" id="CO7-I9-YVN"/>
                             <constraint firstItem="juZ-WX-Wpb" firstAttribute="top" secondItem="puS-ic-WMV" secondAttribute="bottom" id="Dpd-eq-eSo"/>
                             <constraint firstItem="puS-ic-WMV" firstAttribute="leading" secondItem="5CA-ef-efc" secondAttribute="leading" id="Gi7-9E-sfd"/>
                             <constraint firstAttribute="trailing" secondItem="eP7-6D-CKA" secondAttribute="trailing" id="JAY-l2-lzj"/>
@@ -331,7 +332,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-1a-CHi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-1a-CHi">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wve-m6-EWI">
@@ -418,4 +419,7 @@
         <image name="wink" width="56" height="56"/>
         <image name="works" width="82" height="82"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qAK-fr-1TG"/>
+    </inferredMetricsTieBreakers>
 </document>
