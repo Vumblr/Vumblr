@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8dT-9M-4O8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -21,9 +21,11 @@
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Rectangle 1 + bg" translatesAutoresizingMaskIntoConstraints="NO" id="7CE-aE-ygF">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <animations/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGz-bZ-BW0">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="14"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                         <state key="normal" title="Merge Video">
                                             <color key="titleColor" red="1" green="0.96312792899999999" blue="0.97942067779999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,6 +33,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pio-6E-cn0">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="14"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                         <state key="normal" title="Record and Save">
                                             <color key="titleColor" red="1" green="0.96312792899999999" blue="0.97942067779999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,6 +41,7 @@
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-eV-8Yj">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="dtT-JK-Uf1" appends="YES" id="ZSD-3h-Eqh"/>
@@ -45,21 +49,25 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="works" translatesAutoresizingMaskIntoConstraints="NO" id="vtr-pk-rRC">
                                         <rect key="frame" x="187" y="128" width="82" height="82"/>
+                                        <animations/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj2-95-ING">
                                         <rect key="frame" x="189" y="103" width="78" height="19"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYD-HH-hHm">
                                         <rect key="frame" x="70" y="102" width="44" height="19"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
                                         <rect key="frame" x="8" y="527" width="87" height="30"/>
+                                        <animations/>
                                         <state key="normal" title="Merge Video"/>
                                         <connections>
                                             <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
@@ -67,6 +75,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
                                         <rect key="frame" x="8" y="504" width="116" height="30"/>
+                                        <animations/>
                                         <state key="normal" title="Record and Save"/>
                                         <connections>
                                             <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
@@ -74,6 +83,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
                                         <rect key="frame" x="8" y="478" width="106" height="30"/>
+                                        <animations/>
                                         <state key="normal" title="Select and Play"/>
                                         <connections>
                                             <segue destination="8WG-g4-wdp" kind="push" id="k00-uO-kyX"/>
@@ -81,17 +91,20 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
+                                        <animations/>
                                         <connections>
                                             <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vumblr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-Wc-f8S">
                                         <rect key="frame" x="92" y="274" width="136" height="44"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="38"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.27058823529999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="aYD-HH-hHm" firstAttribute="leading" secondItem="NJb-G8-u0B" secondAttribute="leading" constant="70" id="8JF-4t-RS5"/>
@@ -107,6 +120,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NJb-G8-u0B" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="G56-Mw-yQJ"/>
@@ -145,6 +159,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36M-eI-fTg">
                                 <rect key="frame" x="99" y="243" width="88" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Load Video 1"/>
                                 <connections>
                                     <action selector="loadAssetOne:" destination="4sc-ds-v3e" eventType="touchUpInside" id="4Cl-hz-x2I"/>
@@ -152,6 +167,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-eM-RiP">
                                 <rect key="frame" x="98" y="306" width="90" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Load Video 2"/>
                                 <connections>
                                     <action selector="loadAssetTwo:" destination="4sc-ds-v3e" eventType="touchUpInside" id="1MU-8b-XUm"/>
@@ -159,6 +175,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piv-bE-Kl3">
                                 <rect key="frame" x="105" y="364" width="77" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Load Audio"/>
                                 <connections>
                                     <action selector="loadAudio:" destination="4sc-ds-v3e" eventType="touchUpInside" id="lDj-FS-5aE"/>
@@ -166,12 +183,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-Ih-CPz">
                                 <rect key="frame" x="81" y="424" width="95" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Merge Videos"/>
                                 <connections>
                                     <action selector="merge:" destination="4sc-ds-v3e" eventType="touchUpInside" id="qw8-JO-CSa"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="eSD-uM-wlx"/>
@@ -194,17 +213,20 @@
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Rectangle 1 + bg" translatesAutoresizingMaskIntoConstraints="NO" id="puS-ic-WMV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="Vumblr" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="254"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your video will play here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6c-kx-OAQ">
                                         <rect key="frame" x="65" y="116" width="190" height="19"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstItem="i6c-kx-OAQ" firstAttribute="centerX" secondItem="Wce-KU-tN9" secondAttribute="centerX" id="FXs-Xo-LWf"/>
                                     <constraint firstItem="i6c-kx-OAQ" firstAttribute="top" secondItem="Wce-KU-tN9" secondAttribute="top" constant="116" id="Icf-EP-E8D"/>
@@ -212,6 +234,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlw-Cq-XEe">
                                 <rect key="frame" x="121" y="408" width="79" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Add Sticker"/>
                                 <connections>
                                     <action selector="onClickAddSticker:" destination="Qva-cR-9hk" eventType="touchUpInside" id="zly-hX-EKY"/>
@@ -222,10 +245,12 @@
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="pj0-54-8v1">
                                         <rect key="frame" x="150" y="8" width="20" height="14"/>
+                                        <animations/>
                                         <color key="tintColor" red="0.88008514929089809" green="1" blue="0.075470839486599606" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-cu-xNo">
                                         <rect key="frame" x="23" y="143" width="60" height="60"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Ay4-wa-sdS"/>
@@ -234,6 +259,7 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-gU-nGf">
                                         <rect key="frame" x="130" y="143" width="60" height="60"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="AW1-5V-KOc"/>
@@ -242,6 +268,7 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="Yb2-hu-Cbd">
                                         <rect key="frame" x="23" y="46" width="60" height="60"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="6Fj-ha-W6E"/>
@@ -250,6 +277,7 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-Xc-rbs">
                                         <rect key="frame" x="238" y="143" width="60" height="60"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="86m-zg-rXn"/>
@@ -258,6 +286,7 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="ztZ-GX-hBx">
                                         <rect key="frame" x="130" y="46" width="60" height="60"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Uf7-bI-SGR"/>
@@ -266,6 +295,7 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="TDc-DF-OkI">
                                         <rect key="frame" x="238" y="46" width="60" height="60"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="BXW-Ep-lKV"/>
@@ -273,6 +303,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.27537165019999998" blue="0.34795205260000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -290,6 +321,7 @@
                                 </connections>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.17647058823529413" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="juZ-WX-Wpb" firstAttribute="top" secondItem="eP7-6D-CKA" secondAttribute="bottom" id="CO7-I9-YVN"/>
@@ -334,15 +366,18 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-1a-CHi">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wve-m6-EWI">
                                 <rect key="frame" x="136" y="493" width="49" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="onRecordVideoButton:" destination="ZV2-VC-Fjf" eventType="touchUpInside" id="t5W-jg-G6P"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Mgm-1a-CHi" secondAttribute="trailing" id="C2Y-8V-bga"/>
@@ -374,12 +409,14 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRJ-1U-zFm">
                                 <rect key="frame" x="124" y="269" width="72" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Play Video"/>
                                 <connections>
                                     <action selector="onTapPlayVideo:" destination="8WG-g4-wdp" eventType="touchUpInside" id="JFi-a0-hP2"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="DOI-ea-Bzl"/>
@@ -396,6 +433,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nZN-ob-bwp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

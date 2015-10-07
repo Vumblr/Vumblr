@@ -20,7 +20,7 @@ class MergeVideoViewController: UIViewController {
     var audioAsset: AVAsset?
     var loadingAssetOne = false
     
-    @IBOutlet var activityMonitor: UIActivityIndicatorView!
+    //@IBOutlet var activityMonitor: UIActivityIndicatorView!
     
     var assetCollection: PHAssetCollection = PHAssetCollection()
     var photosAsset: PHFetchResult!
@@ -86,30 +86,53 @@ class MergeVideoViewController: UIViewController {
     
     @IBAction func merge(sender: AnyObject) {
         if let firstAsset = firstAsset, secondAsset = secondAsset {
-            activityMonitor.startAnimating()
+            //activityMonitor.startAnimating()
             
             // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
             let mixComposition = AVMutableComposition()
             
             // 2 - Video track
-            let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+            let originVideoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
             
             
             do {
-                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, firstAsset.duration),
+                try originVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, firstAsset.duration),
                     ofTrack: firstAsset.tracksWithMediaType(AVMediaTypeVideo)[0],
                     atTime: kCMTimeZero)
             } catch _ {
                 print("video one failed")
             }
             
+            let decorativeVideoTrak = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+            
             do {
-                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, secondAsset.duration),
+                
+                try decorativeVideoTrak.insertTimeRange(CMTimeRangeMake(kCMTimeZero, secondAsset.duration),
                     ofTrack: secondAsset.tracksWithMediaType(AVMediaTypeVideo)[0],
-                    atTime: firstAsset.duration)
+                    atTime: kCMTimeZero)
+                //atTime: firstAsset.duration)
             } catch _ {
                 print("video two failed")
             }
+            
+            // 2.1
+            let mainInstruction = AVMutableVideoCompositionInstruction()
+            //mainInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeAdd(firstAsset.duration, secondAsset.duration))
+            mainInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMaximum(firstAsset.duration, secondAsset.duration))
+            
+            // 2.2
+            let firstInstruction = AVFoundationClient.sharedInstance.videoCompositionInstructionForTrack(originVideoTrack, asset: firstAsset, scaleRatio: 1.0)
+            firstInstruction.setOpacity(0.0, atTime: firstAsset.duration)
+            let secondInstruction = AVFoundationClient.sharedInstance.videoCompositionInstructionForTrack(decorativeVideoTrak, asset: secondAsset, scaleRatio: 0.5)
+            
+            // 2.3
+            mainInstruction.layerInstructions = [secondInstruction, firstInstruction]
+            
+            let mainComposition = AVMutableVideoComposition()
+            mainComposition.instructions = [mainInstruction]
+            mainComposition.frameDuration = CMTimeMake(1, 30)
+            mainComposition.renderSize = CGSize(width: UIScreen.mainScreen().bounds.width,
+                height: UIScreen.mainScreen().bounds.height)
             
             // 3 - Audio track
             if let loadedAudioAsset = audioAsset {
@@ -145,6 +168,7 @@ class MergeVideoViewController: UIViewController {
                 exporter.outputURL = url
                 exporter.outputFileType = AVFileTypeQuickTimeMovie
                 exporter.shouldOptimizeForNetworkUse = true
+                exporter.videoComposition = mainComposition
                 
                 // 6 - Perform the Export
                 exporter.exportAsynchronouslyWithCompletionHandler() {
@@ -184,7 +208,7 @@ class MergeVideoViewController: UIViewController {
             }
         }
         
-        activityMonitor.stopAnimating()
+        //activityMonitor.stopAnimating()
         firstAsset = nil
         secondAsset = nil
         audioAsset = nil

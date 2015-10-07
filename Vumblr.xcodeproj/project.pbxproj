@@ -173,7 +173,7 @@
 				TargetAttributes = {
 					4EB6D51E1BB726490037B4A2 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 84Q69XA6W4;
+						DevelopmentTeam = 7YXV34T8S9;
 					};
 				};
 			};
@@ -333,10 +333,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tumblr.Vumblr;
 				PRODUCT_NAME = Vumblr;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -345,10 +347,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tumblr.Vumblr;
 				PRODUCT_NAME = Vumblr;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
