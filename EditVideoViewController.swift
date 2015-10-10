@@ -41,7 +41,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
-    func addSticker() {
+    
+    func addSticker(image: UIImage) {
         print(selectedFileUrl)
         let mergeComposition : AVMutableComposition = AVMutableComposition()
         let trackVideo : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
@@ -121,9 +122,9 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 //        titleLayer.foregroundColor = UIColor.whiteColor().CGColor
         
         let imageLayer = CALayer()
-        let image = UIImage(named: "happy")
-        imageLayer.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
-        imageLayer.contents = image?.CGImage
+        let image = image
+        imageLayer.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        imageLayer.contents = image.CGImage
         imageLayer.contentsGravity = kCAGravityCenter
 //        imageLayer.masksToBounds = true
         
@@ -253,7 +254,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 
     @IBAction func onClickAddSticker(sender: AnyObject) {
         print("Added sticker")
-        addSticker()
+        addSticker(UIImage(named: "happy")!)
     }
     
     /*
