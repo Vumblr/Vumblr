@@ -127,10 +127,10 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         imageLayer.contentsGravity = kCAGravityCenter
 //        imageLayer.masksToBounds = true
         
-//        let backgroundLayer = CALayer()
-//        backgroundLayer.frame = CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-//        backgroundLayer.masksToBounds = true
-//        backgroundLayer.addSublayer(imageLayer)
+        let backgroundLayer = CALayer()
+        backgroundLayer.frame = CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
+        backgroundLayer.masksToBounds = true
+        backgroundLayer.addSublayer(imageLayer)
         
         // 2. set parent layer and video layer
         
@@ -140,7 +140,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         videoLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
 
         
-//        parentLayer.addSublayer(backgroundLayer)
+        parentLayer.addSublayer(backgroundLayer)
         parentLayer.addSublayer(videoLayer)
         parentLayer.addSublayer(imageLayer)
         
