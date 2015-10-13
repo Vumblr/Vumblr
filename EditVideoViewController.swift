@@ -41,7 +41,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
-    func addSticker() {
+    
+    func addSticker(image: UIImage) {
         print(selectedFileUrl)
         let mergeComposition : AVMutableComposition = AVMutableComposition()
         let trackVideo : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
@@ -62,8 +63,12 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             return
         }
         
+        
+        // Get the size of the video and set it as the renderWidth/Height
         let renderWidth = vtrack?.naturalSize.width
         let renderHeight = vtrack?.naturalSize.height
+        
+        // Set the endTime to the duration of the video and the range of to the duration of the video
         let insertTime = kCMTimeZero
         let endTime = sourceAsset.duration
         let range = sourceDuration
@@ -105,21 +110,28 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
         // add text
         
-        let title = String("💩")
+//        let title = String("💩")
+//        
+//        let titleLayer = CATextLayer()
+//        titleLayer.string = title
+//        titleLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
+//        let fontName: CFStringRef = "Helvetica-Bold"
+//        let fontSize = CGFloat(36)
+//        titleLayer.font = CTFontCreateWithName(fontName, fontSize, nil)
+//        titleLayer.alignmentMode = kCAAlignmentCenter
+//        titleLayer.foregroundColor = UIColor.whiteColor().CGColor
         
-        let titleLayer = CATextLayer()
-        titleLayer.string = title
-        titleLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-        let fontName: CFStringRef = "Helvetica-Bold"
-        let fontSize = CGFloat(36)
-        titleLayer.font = CTFontCreateWithName(fontName, fontSize, nil)
-        titleLayer.alignmentMode = kCAAlignmentCenter
-        titleLayer.foregroundColor = UIColor.whiteColor().CGColor
+        let imageLayer = CALayer()
+        let image = image
+        imageLayer.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        imageLayer.contents = image.CGImage
+        imageLayer.contentsGravity = kCAGravityCenter
+//        imageLayer.masksToBounds = true
         
         let backgroundLayer = CALayer()
         backgroundLayer.frame = CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
         backgroundLayer.masksToBounds = true
-        backgroundLayer.addSublayer(titleLayer)
+        backgroundLayer.addSublayer(imageLayer)
         
         // 2. set parent layer and video layer
         
@@ -127,10 +139,11 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         let videoLayer = CALayer()
         parentLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
         videoLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
+
         
         parentLayer.addSublayer(backgroundLayer)
         parentLayer.addSublayer(videoLayer)
-        parentLayer.addSublayer(titleLayer)
+        parentLayer.addSublayer(imageLayer)
         
         // 3. make animation
         
@@ -195,6 +208,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         let player = AVPlayer(URL: fileURL)
         let playerController = AVPlayerViewController()
         
+        
         playerController.player = player
 //        self.addChildViewController(playerController)
         playerView.addSubview(playerController.view)
@@ -240,7 +254,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 
     @IBAction func onClickAddSticker(sender: AnyObject) {
         print("Added sticker")
-        addSticker()
+        addSticker(UIImage(named: "happy")!)
     }
     
     /*
