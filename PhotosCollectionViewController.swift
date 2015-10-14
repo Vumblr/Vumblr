@@ -15,10 +15,20 @@ class PhotosCollectionViewController: UICollectionViewController, PHPhotoLibrary
     
     var videos: PHFetchResult! = nil
     let imageManager = PHCachingImageManager.defaultManager()
+    private let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 50.0, right: 20.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nav = self.navigationController?.navigationBar
         
+        ///******* UI OF TOP BAR Collection view *******/
+        navigationItem.title = "Videos"
+        //navigationItem.
+        //nav?.titleTextAttributes = UIColor.whiteColor()
+        nav?.tintColor = UIColor.whiteColor()
+        nav?.barTintColor = UIColor(red: 253/255, green: 58/255, blue: 90/255, alpha: 1)
+        nav?.translucent = false
+        self.navigationController?.navigationBarHidden = false
         let allVideosOptions = PHFetchOptions()
         allVideosOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.Video.rawValue)
         allVideosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
@@ -33,6 +43,19 @@ class PhotosCollectionViewController: UICollectionViewController, PHPhotoLibrary
         //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
+    }
+
+    //3
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+            return sectionInsets
     }
 
     override func didReceiveMemoryWarning() {
