@@ -13,7 +13,7 @@ import MobileCoreServices
 import VideoToolbox
 
 
-class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate{
     
     var selectedFileUrl: NSURL?
     
@@ -25,6 +25,13 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 
     @IBOutlet weak var trayArrowImageView: UIImageView!
 
+    
+    var newlyCreatedFace: UIImageView!
+    var originFaceCenter: CGPoint!
+    var customFace: UIImageView!
+    var customFaceCenter: CGPoint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         trayViewUpY =  CGFloat(560)
@@ -41,6 +48,84 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
+    
+    
+
+    @IBAction func onPanIconGesture(sender: UIPanGestureRecognizer) {
+        
+        //var point = sender.locationInView(trayView)
+        let translation = sender.translationInView(trayView)
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            let imageView = sender.view as! UIImageView
+            newlyCreatedFace = UIImageView(image: imageView.image)
+            newlyCreatedFace.userInteractionEnabled = true
+            
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onCustomPan:")
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+            let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: "onCustomPinch:")
+            pinchGestureRecognizer.delegate = self
+            newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
+            let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: "onCustomRotate:")
+            newlyCreatedFace.addGestureRecognizer(rotationGestureRecognizer)
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "onCustomDoubleTap:")
+            tapGestureRecognizer.numberOfTapsRequired = 2
+            newlyCreatedFace.addGestureRecognizer(tapGestureRecognizer)
+            
+            view.addSubview(newlyCreatedFace)
+            originFaceCenter = imageView.center
+            newlyCreatedFace.center = imageView.center
+            newlyCreatedFace.center.y += trayView.frame.origin.y
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            newlyCreatedFace.center = CGPoint(x: originFaceCenter.x + translation.x,
+                y: originFaceCenter.y + translation.y + trayView.frame.origin.y)
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            
+        }
+    }
+    
+    @IBAction func onCustomPan(sender: UIPanGestureRecognizer) {
+        //var point = sender.locationInView(view)
+        let translation = sender.translationInView(view)
+        
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            customFace = sender.view as! UIImageView
+            customFaceCenter = customFace.center
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.customFace.transform = CGAffineTransformMakeScale(1.25, 1.25)
+            })
+            
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            customFace.center = CGPoint(x: customFaceCenter.x + translation.x,
+                y: customFaceCenter.y + translation.y )
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
+            })
+        }
+        
+    }
+    
+    @IBAction func onCustomPinch(sender: UIPinchGestureRecognizer) {
+        customFace = sender.view as! UIImageView
+        let scale = sender.scale
+        customFace.transform = CGAffineTransformMakeScale(scale, scale)
+    }
+    
+    @IBAction func onCustomRotate(sender: UIRotationGestureRecognizer){
+        sender.view!.transform = CGAffineTransformRotate(sender.view!.transform, sender.rotation)
+    }
+    
+    @IBAction func onCustomDoubleTap(sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    
     func addSticker() {
         print(selectedFileUrl)
         let mergeComposition : AVMutableComposition = AVMutableComposition()
