@@ -18,8 +18,10 @@
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Rectangle 1 + bg" translatesAutoresizingMaskIntoConstraints="NO" id="5UQ-oq-BET">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
                             </imageView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5UQ-oq-BET" secondAttribute="trailing" id="0AS-nA-HqT"/>

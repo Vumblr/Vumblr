@@ -264,6 +264,9 @@
                                             <constraint firstAttribute="height" constant="60" id="Ay4-wa-sdS"/>
                                             <constraint firstAttribute="width" constant="60" id="YcZ-U8-RWl"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7sX-Fg-chG" appends="YES" id="R9C-5D-NwA"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-gU-nGf">
                                         <rect key="frame" x="130" y="143" width="60" height="60"/>
@@ -273,6 +276,9 @@
                                             <constraint firstAttribute="height" constant="60" id="AW1-5V-KOc"/>
                                             <constraint firstAttribute="width" constant="60" id="aqD-9P-MpN"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="IAI-r1-wPK" appends="YES" id="9iO-ku-gVs"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="Yb2-hu-Cbd">
                                         <rect key="frame" x="23" y="46" width="60" height="60"/>
@@ -282,6 +288,9 @@
                                             <constraint firstAttribute="height" constant="60" id="6Fj-ha-W6E"/>
                                             <constraint firstAttribute="width" constant="60" id="jpm-yQ-cCg"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="hN2-z3-bW9" appends="YES" id="hL1-vv-Jda"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-Xc-rbs">
                                         <rect key="frame" x="238" y="143" width="60" height="60"/>
@@ -291,6 +300,9 @@
                                             <constraint firstAttribute="width" constant="60" id="86m-zg-rXn"/>
                                             <constraint firstAttribute="height" constant="60" id="Vei-Vd-Xxq"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="j2Z-EO-MuZ" appends="YES" id="fFd-kw-iGi"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="ztZ-GX-hBx">
                                         <rect key="frame" x="130" y="46" width="60" height="60"/>
@@ -300,6 +312,9 @@
                                             <constraint firstAttribute="height" constant="60" id="Uf7-bI-SGR"/>
                                             <constraint firstAttribute="width" constant="60" id="avc-dt-6dL"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="pe0-uY-qf5" appends="YES" id="46W-TD-eVa"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="TDc-DF-OkI">
                                         <rect key="frame" x="238" y="46" width="60" height="60"/>
@@ -309,6 +324,9 @@
                                             <constraint firstAttribute="height" constant="60" id="BXW-Ep-lKV"/>
                                             <constraint firstAttribute="width" constant="60" id="ttJ-hZ-Bin"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="X1h-Vn-L9U" appends="YES" id="3BG-83-LTj"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <animations/>
@@ -355,6 +373,36 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="K7P-ft-33W">
                     <connections>
                         <action selector="onPanTrayView:" destination="Qva-cR-9hk" id="XCU-cS-72m"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hN2-z3-bW9">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="SfM-sJ-HDk"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="pe0-uY-qf5">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="BF8-pu-9Gb"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="X1h-Vn-L9U">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="zFy-FT-c2Q"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="7sX-Fg-chG">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="kNT-ch-3GF"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="IAI-r1-wPK">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="skg-pY-ilb"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="j2Z-EO-MuZ">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="uq4-PK-t71"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
