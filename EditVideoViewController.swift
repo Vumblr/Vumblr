@@ -31,6 +31,10 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     var customFace: UIImageView!
     var customFaceCenter: CGPoint!
     
+    var videoBounds: CGRect?
+    var customFaceLayers: [CALayer]?
+    var playViewGapY: CGFloat = 64
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +83,23 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             newlyCreatedFace.center = CGPoint(x: originFaceCenter.x + translation.x,
                 y: originFaceCenter.y + translation.y + trayView.frame.origin.y)
         } else if sender.state == UIGestureRecognizerState.Ended {
+            if let vBounds = videoBounds {
+                print("videoFrameSize \(vBounds)")
+                print("new face center:\(newlyCreatedFace.center)")
+                print("customFace bounds: \(newlyCreatedFace.bounds)")
+                if (newlyCreatedFace.center.x - newlyCreatedFace.bounds.width / 2 < 0) {
+                    newlyCreatedFace.center.x = newlyCreatedFace.bounds.width / 2
+                }
+                if (newlyCreatedFace.center.x + newlyCreatedFace.bounds.width / 2 > vBounds.width) {
+                    newlyCreatedFace.center.x = vBounds.width - newlyCreatedFace.bounds.width / 2
+                }
+                if (newlyCreatedFace.center.y - newlyCreatedFace.bounds.height / 2 < playViewGapY) {
+                    newlyCreatedFace.center.y = newlyCreatedFace.bounds.height / 2 + playViewGapY
+                }
+                if (newlyCreatedFace.center.y + newlyCreatedFace.bounds.height / 2 > vBounds.height+playViewGapY) {
+                    newlyCreatedFace.center.y = vBounds.height - newlyCreatedFace.bounds.height / 2 + playViewGapY
+                }
+            }
             
         }
     }
@@ -102,6 +123,24 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             UIView.animateWithDuration(0.2, animations: { () -> Void in
                 self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
             })
+            if let vBounds = videoBounds {
+                print("videoFrameSize \(vBounds)")
+                print("new face center:\(customFace.center)")
+                print("customFace bounds: \(customFace.bounds)")
+                if (customFace.center.x - customFace.bounds.width / 2 < 0) {
+                    customFace.center.x = customFace.bounds.width / 2
+                }
+                if (customFace.center.x + customFace.bounds.width / 2 > vBounds.width) {
+                    customFace.center.x = vBounds.width - customFace.bounds.width / 2
+                }
+                if (customFace.center.y - customFace.bounds.height / 2 < playViewGapY) {
+                    customFace.center.y = customFace.bounds.height / 2 + playViewGapY
+                }
+                if (customFace.center.y + customFace.bounds.height / 2 > vBounds.height + playViewGapY) {
+                    customFace.center.y = vBounds.height - customFace.bounds.height / 2 + playViewGapY
+                }
+            }
+            
         }
         
     }
@@ -150,6 +189,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         // Get the size of the video and set it as the renderWidth/Height
         let renderWidth = vtrack?.naturalSize.width
         let renderHeight = vtrack?.naturalSize.height
+        
         
         // Set the endTime to the duration of the video and the range of to the duration of the video
         let insertTime = kCMTimeZero
@@ -297,6 +337,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         playerView.addSubview(playerController.view)
         playerController.view.frame = playerView.bounds
     
+        videoBounds = playerView.bounds
+
         
         player.play()
         
