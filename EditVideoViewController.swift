@@ -31,9 +31,10 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     var customFace: UIImageView!
     var customFaceCenter: CGPoint!
     
-    var videoBounds: CGRect?
-    var customFaceLayers: [CALayer]?
+    
     var playViewGapY: CGFloat = 64
+    var videoBounds: CGRect?
+    var customIconArray = [UIImageView]()
     
     
     override func viewDidLoad() {
@@ -63,6 +64,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             newlyCreatedFace.userInteractionEnabled = true
+            customIconArray.append(newlyCreatedFace)
             
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onCustomPan:")
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
@@ -83,26 +85,11 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             newlyCreatedFace.center = CGPoint(x: originFaceCenter.x + translation.x,
                 y: originFaceCenter.y + translation.y + trayView.frame.origin.y)
         } else if sender.state == UIGestureRecognizerState.Ended {
-            if let vBounds = videoBounds {
-                print("videoFrameSize \(vBounds)")
-                print("new face center:\(newlyCreatedFace.center)")
-                print("customFace bounds: \(newlyCreatedFace.bounds)")
-                if (newlyCreatedFace.center.x - newlyCreatedFace.bounds.width / 2 < 0) {
-                    newlyCreatedFace.center.x = newlyCreatedFace.bounds.width / 2
-                }
-                if (newlyCreatedFace.center.x + newlyCreatedFace.bounds.width / 2 > vBounds.width) {
-                    newlyCreatedFace.center.x = vBounds.width - newlyCreatedFace.bounds.width / 2
-                }
-                if (newlyCreatedFace.center.y - newlyCreatedFace.bounds.height / 2 < playViewGapY) {
-                    newlyCreatedFace.center.y = newlyCreatedFace.bounds.height / 2 + playViewGapY
-                }
-                if (newlyCreatedFace.center.y + newlyCreatedFace.bounds.height / 2 > vBounds.height+playViewGapY) {
-                    newlyCreatedFace.center.y = vBounds.height - newlyCreatedFace.bounds.height / 2 + playViewGapY
-                }
-            }
-            
+            setIconConstraint(newlyCreatedFace)
+            printAllFaceViews()
         }
     }
+
     
     @IBAction func onCustomPan(sender: UIPanGestureRecognizer) {
         //var point = sender.locationInView(view)
@@ -123,26 +110,38 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             UIView.animateWithDuration(0.2, animations: { () -> Void in
                 self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
             })
-            if let vBounds = videoBounds {
-                print("videoFrameSize \(vBounds)")
-                print("new face center:\(customFace.center)")
-                print("customFace bounds: \(customFace.bounds)")
-                if (customFace.center.x - customFace.bounds.width / 2 < 0) {
-                    customFace.center.x = customFace.bounds.width / 2
-                }
-                if (customFace.center.x + customFace.bounds.width / 2 > vBounds.width) {
-                    customFace.center.x = vBounds.width - customFace.bounds.width / 2
-                }
-                if (customFace.center.y - customFace.bounds.height / 2 < playViewGapY) {
-                    customFace.center.y = customFace.bounds.height / 2 + playViewGapY
-                }
-                if (customFace.center.y + customFace.bounds.height / 2 > vBounds.height + playViewGapY) {
-                    customFace.center.y = vBounds.height - customFace.bounds.height / 2 + playViewGapY
-                }
-            }
-            
+            setIconConstraint(customFace)
+            printAllFaceViews()
         }
-        
+    }
+    
+    
+    func printAllFaceViews() {
+        if let vBounds = videoBounds {
+            print("videoFrameSize \(vBounds)")
+            for customFace in customIconArray {
+                print("customface image: \(customFace.image)")
+                print("customface center:\(customFace.center)")
+                print("customFace bounds: \(customFace.bounds)")
+            }
+        }
+    }
+    
+    func setIconConstraint(imageView : UIImageView) {
+        if let vBounds = videoBounds {
+            if (imageView.center.x - imageView.bounds.width / 2 < 0) {
+                imageView.center.x = imageView.bounds.width / 2
+            }
+            if (imageView.center.x + imageView.bounds.width / 2 > vBounds.width) {
+                imageView.center.x = vBounds.width - imageView.bounds.width / 2
+            }
+            if (imageView.center.y - imageView.bounds.height / 2 < playViewGapY) {
+                imageView.center.y = imageView.bounds.height / 2 + playViewGapY
+            }
+            if (imageView.center.y + imageView.bounds.height / 2 > vBounds.height + playViewGapY) {
+                imageView.center.y = vBounds.height - imageView.bounds.height / 2 + playViewGapY
+            }
+        }
     }
     
     @IBAction func onCustomPinch(sender: UIPinchGestureRecognizer) {
