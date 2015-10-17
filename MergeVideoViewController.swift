@@ -125,7 +125,7 @@ class MergeVideoViewController: UIViewController {
             firstInstruction.setOpacity(0.0, atTime: firstAsset.duration)
             let secondInstruction = AVFoundationClient.sharedInstance.videoCompositionInstructionForTrack(decorativeVideoTrak, asset: secondAsset, scaleRatio: 0.5)
             
-            // 2.3
+            // 2.3s
             mainInstruction.layerInstructions = [secondInstruction, firstInstruction]
             
             let mainComposition = AVMutableVideoComposition()

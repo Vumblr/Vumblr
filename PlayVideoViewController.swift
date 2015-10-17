@@ -37,7 +37,6 @@ class PlayVideoViewController: UIViewController, UIImagePickerControllerDelegate
         playerController.view.frame = self.view.frame
         
         player.play()
-        
     }
     
     

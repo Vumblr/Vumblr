@@ -343,6 +343,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
+    
     @IBAction func onPanTrayView(sender: UIPanGestureRecognizer) {
         let point = sender.locationInView(trayView)
         let velocity = sender.velocityInView(trayView)
