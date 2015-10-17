@@ -22,13 +22,13 @@ class AVFoundationClient {
     var videoTrack: AVMutableCompositionTrack?
     var sourceAsset: AVURLAsset?
     var insertTime = kCMTimeZero
+    var sourceVideoAsset: AVAsset?
     var sourceVideoTrack: AVAssetTrack?
     var sourceRange: CMTimeRange?
     var renderWidth: CGFloat?
     var renderHeight: CGFloat?
     var endTime: CMTime?
-    
-    var stickerLayers: [CALayer]?
+
     
     class var sharedInstance : AVFoundationClient {
         struct Static {
@@ -37,23 +37,6 @@ class AVFoundationClient {
         return Static.instance
     }
     
-    func exportVideoFileFromStickersAndOriginalVideo(stickers: [UIImage], sourceURL: NSURL) {
-        createNewMutableCompositionAndTrack()
-        getSourceAssetFromURL(sourceURL)
-        getVideoParamsAndAppendTracks()
-        createVideoCompositionInstructions()
-        for sticker in stickers {
-            createStickerLayer(sticker)
-        }
-        mergeStickerLayersAndFinalizeInstructions()
-        exportVideo(mutableComposition!, url: <#T##NSURL#>) { (assetURL, error) -> () in
-            if assetURL != nil {
-                print(assetURL)
-            } else {
-                print("Error exporting video")
-            }
-        }
-    }
     
     func createNewMutableCompositionAndTrack() {
         mutableComposition = AVMutableComposition()
@@ -87,7 +70,7 @@ class AVFoundationClient {
         let mainInstruction: AVMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
         mainInstruction.timeRange = sourceRange!
         
-        let videolayerInstruction = videoCompositionInstructionForTrack(videoTrack!, assetTrack: sourceVideoTrack!, scaleRatio: 1)
+        let videolayerInstruction = videoCompositionInstructionForTrack(videoTrack!, asset: sourceAsset!, scaleRatio: 1)
         videolayerInstruction.setTransform(videoTrack!.preferredTransform, atTime: insertTime)
         videolayerInstruction.setOpacity(0.0, atTime: endTime!)
         
@@ -102,42 +85,6 @@ class AVFoundationClient {
         
     }
     
-    // Needs to accept coordinates. Currently just places the image at 0/0
-    func createStickerLayer(image: UIImage) {
-        let imageLayer = CALayer()
-        let image = image
-        imageLayer.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        imageLayer.contents = image.CGImage
-        imageLayer.contentsGravity = kCAGravityCenter
-        
-        //Do the work of setting the layer properties here
-        stickerLayers?.append(imageLayer)
-    }
-    
-    func mergeStickerLayersAndFinalizeInstructions() {
-        let backgroundLayer = CALayer()
-        backgroundLayer.frame = CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-        backgroundLayer.masksToBounds = true
-        
-        for stickerLayer in stickerLayers! {
-            backgroundLayer.addSublayer(stickerLayer)
-        }
-        
-        let parentLayer = CALayer()
-        let videoLayer = CALayer()
-        parentLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-        videoLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-        
-        
-        parentLayer.addSublayer(backgroundLayer)
-        parentLayer.addSublayer(videoLayer)
-        
-        for stickerLayer in stickerLayers! {
-           parentLayer.addSublayer(stickerLayer)
-        }
-        
-        videoCompositionInstructions!.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
-    }
     
     
     func orientationFromTransform(transform: CGAffineTransform) -> (orientation: UIImageOrientation, isPortrait: Bool) {
@@ -157,11 +104,12 @@ class AVFoundationClient {
         return (assetOrientation, isPortrait)
     }
     
-    func videoCompositionInstructionForTrack(instructionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, scaleRatio : CGFloat) -> AVMutableVideoCompositionLayerInstruction {
-        // 1 Getting the instructions from the AVComposition track
-        let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: instructionTrack)
-        // 2 Getting the asset track from the provided AVAsset
-        let assetTrack = assetTrack
+    func videoCompositionInstructionForTrack(track: AVCompositionTrack, asset: AVAsset, scaleRatio : CGFloat) -> AVMutableVideoCompositionLayerInstruction {
+        // 1
+        let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
+        // 2
+        let assetTrack = asset.tracksWithMediaType(AVMediaTypeVideo)[0]
+        
         // 3
         let transform = assetTrack.preferredTransform
         let assetInfo = orientationFromTransform(transform)
