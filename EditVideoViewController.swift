@@ -34,8 +34,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     
     var playViewGapY: CGFloat = 64
     var videoBounds: CGRect?
-    var customIconArray = [UIImageView]()
-    
+    var stickerDictionary = [Int:Sticker]()   // key: timestamp, value: sticker
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +63,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             newlyCreatedFace.userInteractionEnabled = true
-            customIconArray.append(newlyCreatedFace)
+            
             
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onCustomPan:")
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
@@ -85,7 +84,18 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             newlyCreatedFace.center = CGPoint(x: originFaceCenter.x + translation.x,
                 y: originFaceCenter.y + translation.y + trayView.frame.origin.y)
         } else if sender.state == UIGestureRecognizerState.Ended {
+           
             setIconConstraint(newlyCreatedFace)
+            let timestamp = Int(NSDate().timeIntervalSince1970)
+            newlyCreatedFace.tag = timestamp
+            let sticker = Sticker()
+            sticker.timestamp = timestamp
+            sticker.image = newlyCreatedFace.image
+            sticker.x = newlyCreatedFace.center.x - newlyCreatedFace.bounds.width / 2
+            sticker.y = newlyCreatedFace.center.y - newlyCreatedFace.bounds.height / 2 - playViewGapY
+            sticker.width = newlyCreatedFace.bounds.width
+            sticker.height = newlyCreatedFace.bounds.height
+            stickerDictionary[timestamp] = sticker
             printAllFaceViews()
         }
     }
@@ -93,9 +103,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func onCustomPan(sender: UIPanGestureRecognizer) {
         //var point = sender.locationInView(view)
+        
         let translation = sender.translationInView(view)
-        
-        
         if sender.state == UIGestureRecognizerState.Began {
             customFace = sender.view as! UIImageView
             customFaceCenter = customFace.center
@@ -111,6 +120,14 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
                 self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
             })
             setIconConstraint(customFace)
+            let timestamp = customFace.tag
+            if let sticker = stickerDictionary[timestamp] {
+                sticker.x = customFace.center.x - customFace.bounds.width / 2
+                sticker.y = customFace.center.y - customFace.bounds.height / 2 - playViewGapY
+                sticker.width = customFace.bounds.width
+                sticker.height = customFace.bounds.height
+                stickerDictionary[timestamp] = sticker
+            }
             printAllFaceViews()
         }
     }
@@ -119,10 +136,13 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     func printAllFaceViews() {
         if let vBounds = videoBounds {
             print("videoFrameSize \(vBounds)")
-            for customFace in customIconArray {
-                print("customface image: \(customFace.image)")
-                print("customface center:\(customFace.center)")
-                print("customFace bounds: \(customFace.bounds)")
+            for (_, sticker) in stickerDictionary {
+                print("timestamp: \(sticker.timestamp)")
+                print("customface image: \(sticker.image)")
+                print("customface x:\(sticker.x)")
+                print("customface y:\(sticker.y)")
+                print("customFace height: \(sticker.height)")
+                print("customface width:\(sticker.width)")
             }
         }
     }
