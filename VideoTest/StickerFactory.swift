@@ -25,9 +25,22 @@ class StickerFactory {
             createStickerLayer(sticker)
         }
         mergeStickerLayersAndFinalizeInstructions()
-        AVFoundationClient.sharedInstance.exportVideo(AVFoundationClient.sharedInstance.mutableComposition!, url: <#T##NSURL#>) { (assetURL, error) -> () in
+        
+        let filename = "temp_composition.mp4"
+        let outputPath = NSTemporaryDirectory().stringByAppendingString(filename)
+        let outputUrl = NSURL(fileURLWithPath: outputPath)
+        let fileManager = NSFileManager.defaultManager()
+        do {
+            try fileManager.removeItemAtURL(outputUrl)
+        } catch {
+            print("Unable to remove item at \(outputUrl)")
+        }
+        
+        
+        AVFoundationClient.sharedInstance.exportVideo(AVFoundationClient.sharedInstance.mutableComposition!, url: outputUrl) { (assetURL, error) -> () in
             if assetURL != nil {
                 print(assetURL)
+                CustomPhotoAlbum.sharedInstance.saveVideo(outputUrl)
             } else {
                 print("Error exporting video")
             }
