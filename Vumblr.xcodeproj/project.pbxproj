@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E0DFD961BD2B1E700C806E6 /* StickerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DFD951BD2B1E700C806E6 /* StickerFactory.swift */; settings = {ASSET_TAGS = (); }; };
 		4E0DFD981BD2BFC300C806E6 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DFD971BD2BFC300C806E6 /* CustomPhotoAlbum.swift */; settings = {ASSET_TAGS = (); }; };
+		4E0DFD9A1BD6C22700C806E6 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DFD991BD6C22700C806E6 /* Sticker.swift */; settings = {ASSET_TAGS = (); }; };
 		4E741F151BBC89830013F21F /* EditVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E741F141BBC89830013F21F /* EditVideoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E741F1A1BBC8B450013F21F /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E741F191BBC8B450013F21F /* PlayerView.xib */; settings = {ASSET_TAGS = (); }; };
 		4E741F1D1BBC8B840013F21F /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E741F1C1BBC8B840013F21F /* PlayerView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		4E0DFD951BD2B1E700C806E6 /* StickerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerFactory.swift; sourceTree = "<group>"; };
 		4E0DFD971BD2BFC300C806E6 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
+		4E0DFD991BD6C22700C806E6 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		4E741F141BBC89830013F21F /* EditVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVideoViewController.swift; sourceTree = "<group>"; };
 		4E741F191BBC8B450013F21F /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		4E741F1C1BBC8B840013F21F /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				4E0DFD951BD2B1E700C806E6 /* StickerFactory.swift */,
+				4E0DFD991BD6C22700C806E6 /* Sticker.swift */,
 				4E0DFD971BD2BFC300C806E6 /* CustomPhotoAlbum.swift */,
 			);
 			name = Models;
@@ -239,6 +242,7 @@
 				4EB6D5251BB726490037B4A2 /* ViewController.swift in Sources */,
 				4E0DFD981BD2BFC300C806E6 /* CustomPhotoAlbum.swift in Sources */,
 				4EB6D5461BB728180037B4A2 /* MergeVideoViewController.swift in Sources */,
+				4E0DFD9A1BD6C22700C806E6 /* Sticker.swift in Sources */,
 				4E0DFD961BD2B1E700C806E6 /* StickerFactory.swift in Sources */,
 				4E741F1D1BBC8B840013F21F /* PlayerView.swift in Sources */,
 				4E741F151BBC89830013F21F /* EditVideoViewController.swift in Sources */,

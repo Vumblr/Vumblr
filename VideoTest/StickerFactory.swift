@@ -16,7 +16,7 @@ class StickerFactory {
     
     static let sharedInstance = StickerFactory()
     
-    func exportVideoFileFromStickersAndOriginalVideo(stickers: [UIImage], sourceURL: NSURL) {
+    func exportVideoFileFromStickersAndOriginalVideo(stickers: [Sticker], sourceURL: NSURL) {
         AVFoundationClient.sharedInstance.createNewMutableCompositionAndTrack()
         AVFoundationClient.sharedInstance.getSourceAssetFromURL(sourceURL)
         AVFoundationClient.sharedInstance.getVideoParamsAndAppendTracks()
