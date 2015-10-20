@@ -22,10 +22,11 @@ class PhotosCollectionViewController: UICollectionViewController, PHPhotoLibrary
         let nav = self.navigationController?.navigationBar
         
         ///******* UI OF TOP BAR Collection view *******/
-        navigationItem.title = "Videos"
         //navigationItem.
         //nav?.titleTextAttributes = UIColor.whiteColor()
         nav?.tintColor = UIColor.whiteColor()
+        navigationItem.title = "Videos"
+
         nav?.barTintColor = UIColor(red: 253/255, green: 58/255, blue: 90/255, alpha: 1)
         nav?.translucent = false
         self.navigationController?.navigationBarHidden = false
