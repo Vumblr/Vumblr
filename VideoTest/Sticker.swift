@@ -6,18 +6,15 @@
 //  Copyright © 2015 Ken Krzeminski. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 
 class Sticker: NSObject {
+    var timestamp: Int?
     var image: UIImage?
     var x: CGFloat?
     var y: CGFloat?
     var height: CGFloat?
     var width: CGFloat?
-    
-    
-    init () {
-        
-    }
 }

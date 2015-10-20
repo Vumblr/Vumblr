@@ -21,9 +21,9 @@ class StickerFactory {
         AVFoundationClient.sharedInstance.getSourceAssetFromURL(sourceURL)
         AVFoundationClient.sharedInstance.getVideoParamsAndAppendTracks()
         AVFoundationClient.sharedInstance.createVideoCompositionInstructions()
-        for sticker in stickers {
-            createStickerLayer(sticker)
-        }
+//        for sticker in stickers {
+//            createStickerLayer(sticker)
+//        }
         mergeStickerLayersAndFinalizeInstructions()
         
         let filename = "temp_composition.mp4"
