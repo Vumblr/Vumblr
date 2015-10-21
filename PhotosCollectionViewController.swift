@@ -105,6 +105,8 @@ class PhotosCollectionViewController: UIViewController, PHPhotoLibraryChangeObse
             let path = (info[UIImagePickerControllerMediaURL] as! NSURL).path
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path!) {
                 UISaveVideoAtPathToSavedPhotosAlbum(path!, self, "video:didFinishSavingWithError:contextInfo:", nil)
+                print("ANOTHER PATH")
+                print(path)
             }
             
         }
@@ -178,7 +180,11 @@ class PhotosCollectionViewController: UIViewController, PHPhotoLibraryChangeObse
             print("View 2")
             let controller:EditVideoViewController = segue.destinationViewController as! EditVideoViewController
             print(sender)
+
             controller.videos = self.videos
+            
+            //controller.index = 0
+            
             controller.selectedFileUrl = NSURL(fileURLWithPath: sender as! String)
             //controller.imageManager = self.imageManager
         }

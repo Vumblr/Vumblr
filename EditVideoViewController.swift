@@ -60,9 +60,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         self.navigationController?.navigationBarHidden = false
         print("view will appear")
         print(selectedFileUrl)
-        dispatch_async(dispatch_get_main_queue(), {
-             self.retreiveVideoURL()
-        })
+        self.retreiveVideoURL()
        
     }
     
@@ -71,9 +69,14 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         let imageManager = PHImageManager.defaultManager()
         
         var id = imageManager.requestAVAssetForVideo(videoAsset!, options: nil) { (asset: AVAsset?, audioMix: AVAudioMix?, info: [NSObject : AnyObject]?) -> Void in
-            if let asset = asset as? AVURLAsset{
+            
+            dispatch_async(dispatch_get_main_queue(), {
+            if let asset = asset as? AVURLAsset {
                 print("assets URL")
-                self.selectedFileUrl = asset.URL
+                if self.selectedFileUrl == nil {
+                    self.selectedFileUrl = asset.URL
+                }
+                
                 let player = AVPlayer(URL: self.selectedFileUrl!)
                 let playerController = AVPlayerViewController()
                 
@@ -88,6 +91,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
                 player.play()
 
             }
+            })
         }
     }
 

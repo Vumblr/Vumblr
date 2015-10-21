@@ -43,16 +43,10 @@
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
                                         <animations/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="dtT-JK-Uf1" appends="YES" id="ZSD-3h-Eqh"/>
-                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="works" translatesAutoresizingMaskIntoConstraints="NO" id="vtr-pk-rRC">
                                         <rect key="frame" x="187" y="128" width="82" height="82"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="azX-PM-GRb" appends="YES" id="AEo-1U-G4k"/>
-                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj2-95-ING">
                                         <rect key="frame" x="189" y="103" width="78" height="19"/>
@@ -68,7 +62,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
                                         <rect key="frame" x="8" y="527" width="87" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Merge Video"/>
@@ -76,7 +70,7 @@
                                             <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
                                         <rect key="frame" x="8" y="504" width="116" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Record and Save"/>
@@ -84,7 +78,7 @@
                                             <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
                                         <rect key="frame" x="8" y="478" width="106" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Select and Play"/>
@@ -95,8 +89,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
                                         <animations/>
+                                        <gestureRecognizers/>
                                         <connections>
-                                            <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
+                                            <outletCollection property="gestureRecognizers" destination="TVi-kN-v9g" appends="YES" id="eZh-cc-0qd"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vumblr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-Wc-f8S">
@@ -140,14 +135,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dtT-JK-Uf1">
+                <tapGestureRecognizer id="TVi-kN-v9g">
                     <connections>
-                        <segue destination="Qva-cR-9hk" kind="push" id="85h-V7-fNV"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="azX-PM-GRb" userLabel="worksGesture">
-                    <connections>
-                        <segue destination="rkN-jC-L6B" kind="push" id="3jm-c9-W5U"/>
+                        <segue destination="rkN-jC-L6B" kind="push" id="cp9-eP-i0E"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -205,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUP-JM-Ou5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="943"/>
+            <point key="canvasLocation" x="645" y="1194"/>
         </scene>
         <!--Edit Video View Controller-->
         <scene sceneID="K1b-xT-2zO">
@@ -403,7 +393,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1129" y="325"/>
+            <point key="canvasLocation" x="1506" y="295"/>
         </scene>
         <!--Photos Collection View Controller-->
         <scene sceneID="7qN-XL-SIR">
@@ -483,7 +473,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1710" y="295"/>
+            <point key="canvasLocation" x="1091" y="295"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
@@ -526,7 +516,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPR-Me-OzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="949"/>
+            <point key="canvasLocation" x="981" y="1194"/>
         </scene>
         <!--Play Video View Controller-->
         <scene sceneID="HKW-sL-HUt">
@@ -556,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1HS-WF-iJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="-391"/>
+            <point key="canvasLocation" x="1321" y="1194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkt-Pg-kLA">
@@ -592,6 +582,6 @@
         <image name="works" width="82" height="82"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qAK-fr-1TG"/>
+        <segue reference="mfw-b5-wde"/>
     </inferredMetricsTieBreakers>
 </document>
