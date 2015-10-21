@@ -271,7 +271,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
             endingLineNumber = "240"
-            landmarkName = "onTapExport(_:)"
+            landmarkName = "onCustomDoubleTap(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -319,7 +319,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"
             endingLineNumber = "241"
-            landmarkName = "onTapExport(_:)"
+            landmarkName = "onCustomDoubleTap(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

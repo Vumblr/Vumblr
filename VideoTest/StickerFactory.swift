@@ -12,7 +12,7 @@ import AVFoundation
 
 class StickerFactory {
     
-    var stickerLayers: [CALayer]?
+    var stickerLayers = [CALayer]()
     
     static let sharedInstance = StickerFactory()
     
@@ -55,7 +55,7 @@ class StickerFactory {
         imageLayer.contentsGravity = kCAGravityCenter
         
         //Do the work of setting the layer properties here
-        stickerLayers?.append(imageLayer)
+        stickerLayers.append(imageLayer)
     }
     
     func mergeStickerLayersAndFinalizeInstructions() {
@@ -63,7 +63,7 @@ class StickerFactory {
         backgroundLayer.frame = CGRect(x: 0, y: 0, width: AVFoundationClient.sharedInstance.renderWidth!, height: AVFoundationClient.sharedInstance.renderHeight!)
         backgroundLayer.masksToBounds = true
         
-        for stickerLayer in stickerLayers! {
+        for stickerLayer in stickerLayers{
             backgroundLayer.addSublayer(stickerLayer)
         }
         
@@ -76,7 +76,7 @@ class StickerFactory {
         parentLayer.addSublayer(backgroundLayer)
         parentLayer.addSublayer(videoLayer)
         
-        for stickerLayer in stickerLayers! {
+        for stickerLayer in stickerLayers {
             parentLayer.addSublayer(stickerLayer)
         }
         
