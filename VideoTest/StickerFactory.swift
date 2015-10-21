@@ -75,6 +75,7 @@ class StickerFactory {
         parentLayer.addSublayer(backgroundLayer)
         parentLayer.addSublayer(videoLayer)
         
+        
         for stickerLayer in stickerLayers {
             parentLayer.addSublayer(stickerLayer)
         }
