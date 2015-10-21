@@ -22,7 +22,7 @@ class StickerFactory {
         AVFoundationClient.sharedInstance.getVideoParamsAndAppendTracks()
         AVFoundationClient.sharedInstance.createVideoCompositionInstructions()
         for sticker in stickers {
-            createStickerLayer(sticker)
+            createStickerLayer(sticker.image, x: sticker.x, y: sticker.y, width: sticker.width, height: sticker.height)
         }
         mergeStickerLayersAndFinalizeInstructions()
         
@@ -48,10 +48,9 @@ class StickerFactory {
     }
     
     // Needs to accept coordinates. Currently just places the image at 0/0
-    func createStickerLayer(image: UIImage) {
+    func createStickerLayer(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         let imageLayer = CALayer()
-        let image = image
-        imageLayer.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        imageLayer.frame = CGRect(x: x, y: y, width: width, height: height)
         imageLayer.contents = image.CGImage
         imageLayer.contentsGravity = kCAGravityCenter
         

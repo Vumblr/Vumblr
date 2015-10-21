@@ -54,6 +54,9 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         self.navigationController?.navigationBarHidden = false
     }
     
+    @IBAction func onTapExport(sender: AnyObject) {
+        StickerFactory.sharedInstance.exportVideoFileFromStickersAndOriginalVideo(<#T##stickers: [Sticker]##[Sticker]#>, sourceURL: selectedFileUrl!)
+    }
 
     @IBAction func onPanIconGesture(sender: UIPanGestureRecognizer) {
         
