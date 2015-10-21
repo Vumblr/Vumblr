@@ -237,6 +237,22 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func onTapExport(sender: AnyObject) {
+        if stickerDictionary.count > 0 {
+            StickerFactory.sharedInstance.exportVideoFileFromStickersAndOriginalVideo(stickerDictionary, sourceURL: selectedFileUrl!)
+            
+            let alertController = UIAlertController(title: "Exported Video!", message:
+                "Video exported to the 'Vumblr' album", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+
+        } else {
+            let alertController = UIAlertController(title: "Add some stickers first!", message:
+                "Add stickers to your video before attempting to export the video", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     
