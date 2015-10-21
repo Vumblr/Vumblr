@@ -22,7 +22,7 @@ class StickerFactory {
         AVFoundationClient.sharedInstance.getVideoParamsAndAppendTracks()
         AVFoundationClient.sharedInstance.createVideoCompositionInstructions()
         for sticker in stickers {
-            createStickerLayer(sticker.image, x: sticker.x, y: sticker.y, width: sticker.width, height: sticker.height)
+            createStickerLayer(sticker.image!, x: sticker.x!, y: sticker.y!, width: sticker.width!, height: sticker.height!)
         }
         mergeStickerLayersAndFinalizeInstructions()
         

@@ -35,6 +35,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     var playViewGapY: CGFloat = 64
     var videoBounds: CGRect?
     var customIconArray = [UIImageView]()
+    var stickerArray = [Sticker]()
     
     
     override func viewDidLoad() {
@@ -55,7 +56,15 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func onTapExport(sender: AnyObject) {
-        StickerFactory.sharedInstance.exportVideoFileFromStickersAndOriginalVideo(<#T##stickers: [Sticker]##[Sticker]#>, sourceURL: selectedFileUrl!)
+        if stickerArray.count > 0 {
+            StickerFactory.sharedInstance.exportVideoFileFromStickersAndOriginalVideo(stickerArray, sourceURL: selectedFileUrl!)
+        } else {
+            let alertController = UIAlertController(title: "Add some stickers first!", message:
+                "Add stickers to your video before attempting to export the video", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
 
     @IBAction func onPanIconGesture(sender: UIPanGestureRecognizer) {
@@ -127,6 +136,15 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
                 print("customface center:\(customFace.center)")
                 print("customFace bounds: \(customFace.bounds)")
             }
+        }
+    }
+    
+    func convertFaceViewsIntoStickers(){
+        for face in customIconArray {
+            let newSticker = Sticker()
+            newSticker.updateStickerRect(face, paddingTop: playViewGapY)
+            stickerArray.append(newSticker)
+            print("DEBUG: Added sticker: \nHeight: \(newSticker.height) \nWidth: \(newSticker.width) \nX: \(newSticker.x) \nY: \(newSticker.y)")
         }
     }
     
