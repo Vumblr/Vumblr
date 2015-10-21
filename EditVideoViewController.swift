@@ -91,12 +91,11 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             let sticker = Sticker()
             sticker.timestamp = timestamp
             sticker.image = newlyCreatedFace.image
-            sticker.x = newlyCreatedFace.center.x - newlyCreatedFace.bounds.width / 2
-            sticker.y = newlyCreatedFace.center.y - newlyCreatedFace.bounds.height / 2 - playViewGapY
-            sticker.width = newlyCreatedFace.bounds.width
-            sticker.height = newlyCreatedFace.bounds.height
+            sticker.scale = CGFloat(1.0)
+            sticker.rotation = CGFloat(0)
+            sticker.updateSticker(newlyCreatedFace, paddingTop: playViewGapY)
             stickerDictionary[timestamp] = sticker
-            printAllFaceViews()
+            debugStickers()
         }
     }
 
@@ -122,27 +121,19 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             setIconConstraint(customFace)
             let timestamp = customFace.tag
             if let sticker = stickerDictionary[timestamp] {
-                sticker.x = customFace.center.x - customFace.bounds.width / 2
-                sticker.y = customFace.center.y - customFace.bounds.height / 2 - playViewGapY
-                sticker.width = customFace.bounds.width
-                sticker.height = customFace.bounds.height
+                sticker.updateSticker(customFace, paddingTop: playViewGapY)
                 stickerDictionary[timestamp] = sticker
             }
-            printAllFaceViews()
+            debugStickers()
         }
     }
     
     
-    func printAllFaceViews() {
+    func debugStickers() {
         if let vBounds = videoBounds {
             print("videoFrameSize \(vBounds)")
             for (_, sticker) in stickerDictionary {
-                print("timestamp: \(sticker.timestamp)")
-                print("customface image: \(sticker.image)")
-                print("customface x:\(sticker.x)")
-                print("customface y:\(sticker.y)")
-                print("customFace height: \(sticker.height)")
-                print("customface width:\(sticker.width)")
+                print(sticker.toString() + "\n")
             }
         }
     }
@@ -168,6 +159,14 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         customFace = sender.view as! UIImageView
         let scale = sender.scale
         customFace.transform = CGAffineTransformMakeScale(scale, scale)
+        if let imageView = sender.view as? UIImageView {
+            let timestamp = imageView.tag
+            if let sticker = stickerDictionary[timestamp] {
+                sticker.scale = scale
+                stickerDictionary[timestamp] = sticker
+            }
+        }
+        debugStickers()
     }
     
     @IBAction func onCustomRotate(sender: UIRotationGestureRecognizer){
@@ -175,7 +174,12 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func onCustomDoubleTap(sender: UITapGestureRecognizer) {
-        sender.view?.removeFromSuperview()
+        if let imageView = sender.view as? UIImageView {
+            let timestamp = imageView.tag
+            stickerDictionary.removeValueForKey(timestamp)
+            imageView.removeFromSuperview()
+        }
+        debugStickers()
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
