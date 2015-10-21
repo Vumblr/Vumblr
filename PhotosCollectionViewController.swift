@@ -53,7 +53,8 @@ class PhotosCollectionViewController: UIViewController, PHPhotoLibraryChangeObse
         //nav?.titleTextAttributes = UIColor.whiteColor()
         nav?.tintColor = UIColor.whiteColor()
         navigationItem.title = "Videos"
-
+        
+        
         nav?.barTintColor = UIColor(red: 253/255, green: 58/255, blue: 90/255, alpha: 1)
         //nav?.translucent = falsvar
         self.navigationController?.navigationBarHidden = false
@@ -152,6 +153,8 @@ class PhotosCollectionViewController: UIViewController, PHPhotoLibraryChangeObse
         cell.imageManager = imageManager
         cell.imageAsset = videos[indexPath.item] as? PHAsset
         
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(red: 253/255, green: 58/255, blue: 90/255, alpha: 1).CGColor
         return cell
     }
     
