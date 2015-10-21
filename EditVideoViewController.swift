@@ -236,6 +236,10 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         debugStickers()
     }
     
+    @IBAction func onTapExport(sender: AnyObject) {
+    }
+    
+    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
