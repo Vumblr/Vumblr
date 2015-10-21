@@ -241,6 +241,38 @@
             endingLineNumber = "106"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vumblr.PhotosCollectionViewController.photoLibraryDidChange (Vumblr.PhotosCollectionViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.PHChange&gt;) -&gt; ()"
+                  moduleName = "Vumblr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lea/Dropbox/TUMBLR/IOSTraining/Vumblr-project%202/PhotosCollectionViewController.swift"
+                  timestampString = "467091131.026839"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vumblr.PhotosCollectionViewController.(photoLibraryDidChange (Vumblr.PhotosCollectionViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.PHChange&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "Vumblr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lea/Dropbox/TUMBLR/IOSTraining/Vumblr-project%202/PhotosCollectionViewController.swift"
+                  timestampString = "467091131.02711"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
