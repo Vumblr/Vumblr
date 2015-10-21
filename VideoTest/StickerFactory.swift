@@ -47,14 +47,12 @@ class StickerFactory {
         }
     }
     
-    // Needs to accept coordinates. Currently just places the image at 0/0
     func createStickerLayer(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         let imageLayer = CALayer()
         imageLayer.frame = CGRect(x: x, y: y, width: width, height: height)
         imageLayer.contents = image.CGImage
         imageLayer.contentsGravity = kCAGravityCenter
-        
-        //Do the work of setting the layer properties here
+    
         stickerLayers.append(imageLayer)
     }
     
@@ -66,6 +64,7 @@ class StickerFactory {
         for stickerLayer in stickerLayers{
             backgroundLayer.addSublayer(stickerLayer)
         }
+        
         
         let parentLayer = CALayer()
         let videoLayer = CALayer()
