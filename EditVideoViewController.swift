@@ -27,8 +27,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 
     
     var newlyCreatedFace: UIImageView!
-    var originFaceCenter: CGPoint!
     var customFace: UIImageView!
+    var originFaceCenter: CGPoint!
     var customFaceCenter: CGPoint!
     
     
@@ -61,7 +61,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             newlyCreatedFace.userInteractionEnabled = true
-            
+            newlyCreatedFace.multipleTouchEnabled = true
             
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onCustomPan:")
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
@@ -82,15 +82,13 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             newlyCreatedFace.center = CGPoint(x: originFaceCenter.x + translation.x,
                 y: originFaceCenter.y + translation.y + trayView.frame.origin.y)
         } else if sender.state == UIGestureRecognizerState.Ended {
-           
             setIconConstraint(newlyCreatedFace)
             let timestamp = Int(NSDate().timeIntervalSince1970)
             newlyCreatedFace.tag = timestamp
             let sticker = Sticker()
             sticker.timestamp = timestamp
             sticker.image = newlyCreatedFace.image
-            sticker.scale = CGFloat(1.0)
-            sticker.rotation = CGFloat(0)
+            sticker.setInit()
             sticker.updateStickerRect(newlyCreatedFace, paddingTop: playViewGapY)
             stickerDictionary[timestamp] = sticker
             debugStickers()
@@ -102,18 +100,20 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         let translation = sender.translationInView(view)
         if sender.state == UIGestureRecognizerState.Began {
             customFace = sender.view as! UIImageView
+            customFace.userInteractionEnabled = true
+            customFace.multipleTouchEnabled = true
             customFaceCenter = customFace.center
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.customFace.transform = CGAffineTransformMakeScale(1.25, 1.25)
-            })
+//            UIView.animateWithDuration(0.2, animations: { () -> Void in
+//                self.customFace.transform = CGAffineTransformMakeScale(1.5, 1.5)
+//            })
             
         } else if sender.state == UIGestureRecognizerState.Changed {
             customFace.center = CGPoint(x: customFaceCenter.x + translation.x,
                 y: customFaceCenter.y + translation.y )
         } else if sender.state == UIGestureRecognizerState.Ended {
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
-            })
+//            UIView.animateWithDuration(0.2, animations: { () -> Void in
+//                self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
+//            })
             setIconConstraint(customFace)
             let timestamp = customFace.tag
             if let sticker = stickerDictionary[timestamp] {
@@ -152,41 +152,44 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func onCustomPinch(recognizer: UIPinchGestureRecognizer) {
-        if let imageView = recognizer.view as? UIImageView {
-            imageView.transform = CGAffineTransformScale(imageView.transform,
-                recognizer.scale, recognizer.scale)
-            recognizer.scale = 1
-            
-            let timestamp = imageView.tag
-            if let sticker = stickerDictionary[timestamp] {
-                sticker.scale = recognizer.scale
-                stickerDictionary[timestamp] = sticker
-            }
-            debugStickers()
-        }
+        
+        customFace = recognizer.view as? UIImageView
+        customFace.userInteractionEnabled = true
+        customFace.multipleTouchEnabled = true
+        
+        
+        customFace.transform = CGAffineTransformMakeScale(
+            recognizer.scale, recognizer.scale)
+        
+        recognizer.scale = 1
+        
+        debugStickers()
         
     }
     
     @IBAction func onCustomRotate(recognizer: UIRotationGestureRecognizer){
-        if let imageView = recognizer.view as? UIImageView{
-            imageView.transform = CGAffineTransformRotate(imageView.transform, recognizer.rotation)
-            recognizer.rotation = 0
-            
-            let timestamp = imageView.tag
-            if let sticker = stickerDictionary[timestamp] {
-                sticker.rotation = recognizer.rotation
-                stickerDictionary[timestamp] = sticker
-            }
-            debugStickers()
+        customFace = recognizer.view as? UIImageView
+        customFace.userInteractionEnabled = true
+        customFace.multipleTouchEnabled = true
+        
+        let timestamp = customFace.tag
+        if let sticker = stickerDictionary[timestamp] {
+            sticker.rotation = sticker.rotation! + recognizer.rotation
+            stickerDictionary[timestamp] = sticker
         }
+
+        customFace.transform = CGAffineTransformMakeRotation(recognizer.rotation)
+        recognizer.rotation = 0
+
+        debugStickers()
     }
     
     @IBAction func onCustomDoubleTap(sender: UITapGestureRecognizer) {
-        if let imageView = sender.view as? UIImageView {
-            let timestamp = imageView.tag
-            stickerDictionary.removeValueForKey(timestamp)
-            imageView.removeFromSuperview()
-        }
+        customFace = sender.view as? UIImageView
+        let timestamp = customFace.tag
+        stickerDictionary.removeValueForKey(timestamp)
+        customFace.removeFromSuperview()
+        
         debugStickers()
     }
     

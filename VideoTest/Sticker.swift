@@ -20,6 +20,15 @@ class Sticker: NSObject {
     var scale: CGFloat?
     var rotation: CGFloat? // radian
     
+    func setInit(){
+        x = 0
+        y = 0
+        height = 0
+        width = 0
+        scale = 1
+        rotation = 0
+    }
+    
     func updateStickerRect(imageView: UIImageView, paddingTop: CGFloat) {
         x = imageView.center.x - imageView.bounds.width / 2
         y = imageView.center.y - imageView.bounds.height / 2 - paddingTop
