@@ -206,11 +206,11 @@
                         <viewControllerLayoutGuide type="bottom" id="juZ-WX-Wpb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5CA-ef-efc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Rectangle 1 + bg" translatesAutoresizingMaskIntoConstraints="NO" id="puS-ic-WMV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <animations/>
                             </imageView>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="Vumblr" customModuleProvider="target">
@@ -332,8 +332,14 @@
                             <constraint firstItem="Wce-KU-tN9" firstAttribute="leading" secondItem="5CA-ef-efc" secondAttribute="leading" id="pzo-ta-0cP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aQn-u5-VmH"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="aQn-u5-VmH">
+                        <barButtonItem key="rightBarButtonItem" title="Export" id="C6v-Km-fAk">
+                            <connections>
+                                <action selector="onTapExport:" destination="Qva-cR-9hk" id="5sU-hx-AEm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="playerView" destination="Wce-KU-tN9" id="1qj-k8-MkX"/>
                         <outlet property="trayArrowImageView" destination="pj0-54-8v1" id="UML-vz-jVc"/>
@@ -408,12 +414,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-vr-URo">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-vr-URo">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="4XD-tg-oPR"/>
+                                                        <constraint firstAttribute="width" constant="90" id="Fjp-t5-n2x"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="1Rf-3g-GD6">
+                                                    <rect key="frame" x="-6" y="46" width="48" height="47"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="ZtZ-IX-dwg"/>
+                                                        <constraint firstAttribute="height" constant="47" id="okB-DK-W5F"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="1Rf-3g-GD6" firstAttribute="leading" secondItem="sfs-B1-ufX" secondAttribute="leading" constant="-6" id="40z-F5-pCI"/>
+                                            <constraint firstItem="kAh-vr-URo" firstAttribute="top" secondItem="sfs-B1-ufX" secondAttribute="top" id="86s-bF-B8G"/>
+                                            <constraint firstItem="kAh-vr-URo" firstAttribute="leading" secondItem="sfs-B1-ufX" secondAttribute="leading" id="TKp-7V-xCe"/>
+                                            <constraint firstAttribute="bottom" secondItem="kAh-vr-URo" secondAttribute="bottom" id="Waa-sA-H9q"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Rf-3g-GD6" secondAttribute="bottom" constant="-3" id="fDu-Zk-Dke"/>
+                                            <constraint firstAttribute="trailing" secondItem="kAh-vr-URo" secondAttribute="trailing" id="rii-fa-3BK"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="kAh-vr-URo" id="jg6-Qz-rnm"/>
                                             <segue destination="Qva-cR-9hk" kind="push" identifier="viewVideo" id="Rb6-Ry-p1x"/>
@@ -560,6 +585,7 @@
         <image name="down_arrow" width="20" height="14"/>
         <image name="excited" width="56" height="56"/>
         <image name="happy" width="56" height="56"/>
+        <image name="play" width="78" height="79"/>
         <image name="sad" width="56" height="56"/>
         <image name="tongue" width="56" height="56"/>
         <image name="wink" width="56" height="56"/>
