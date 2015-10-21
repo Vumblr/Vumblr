@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import MobileCoreServices
 import VideoToolbox
-
+import Photos
 
 class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate{
     
@@ -34,13 +34,22 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     
     var playViewGapY: CGFloat = 64
     var videoBounds: CGRect?
+    var customIconArray = [UIImageView]()
+    
+    var videos: PHFetchResult! = nil
+    var videoAsset: PHAsset?
+    var assetCollection: PHAssetCollection = PHAssetCollection()
+    var index: Int = 0
     var stickerDictionary = [Int:Sticker]()   // key: timestamp, value: sticker
     
     override func viewDidLoad() {
         super.viewDidLoad()
         trayViewUpY =  CGFloat(560)
         trayViewDownY = CGFloat(745)
-        presentPicker()
+        //presentPicker()
+
+        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +58,42 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
+        print("view will appear")
+        print(selectedFileUrl)
+        self.retreiveVideoURL()
+       
     }
     
+    func retreiveVideoURL() {
+        videoAsset = videos[index] as? PHAsset
+        let imageManager = PHImageManager.defaultManager()
+        
+        var id = imageManager.requestAVAssetForVideo(videoAsset!, options: nil) { (asset: AVAsset?, audioMix: AVAudioMix?, info: [NSObject : AnyObject]?) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue(), {
+            if let asset = asset as? AVURLAsset {
+                print("assets URL")
+                if self.selectedFileUrl == nil {
+                    self.selectedFileUrl = asset.URL
+                }
+                
+                let player = AVPlayer(URL: self.selectedFileUrl!)
+                let playerController = AVPlayerViewController()
+                
+                
+                playerController.player = player
+                //self.addChildViewController(playerController)
+                self.playerView.addSubview(playerController.view)
+                playerController.view.frame = self.playerView.bounds
+                
+                self.videoBounds = self.playerView.bounds
+                self.playerView.translatesAutoresizingMaskIntoConstraints = false
+                player.play()
+
+            }
+            })
+        }
+    }
 
     @IBAction func onPanIconGesture(sender: UIPanGestureRecognizer) {
         

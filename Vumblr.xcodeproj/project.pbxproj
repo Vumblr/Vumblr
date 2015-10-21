@@ -146,8 +146,8 @@
 		4EB6D5471BB7281D0037B4A2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8B7D2A081BC70C2F0037D6F3 /* PhotosCollectionViewController.swift */,
 				4EB6D5411BB727EF0037B4A2 /* PlayVideoViewController.swift */,
+				8B7D2A081BC70C2F0037D6F3 /* PhotosCollectionViewController.swift */,
 				4EB6D5431BB728010037B4A2 /* RecordVideoViewController.swift */,
 				4EB6D5451BB728180037B4A2 /* MergeVideoViewController.swift */,
 				4EB6D5241BB726490037B4A2 /* ViewController.swift */,
