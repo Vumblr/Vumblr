@@ -199,10 +199,14 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         customFace = recognizer.view as? UIImageView
         customFace.userInteractionEnabled = true
         customFace.multipleTouchEnabled = true
+
+        customFace.transform = CGAffineTransformScale(customFace.transform,recognizer.scale,recognizer.scale)
         
-        
-        customFace.transform = CGAffineTransformMakeScale(
-            recognizer.scale, recognizer.scale)
+        let timestamp = customFace.tag
+        if let sticker = stickerDictionary[timestamp] {
+            sticker.scale = sticker.scale! * recognizer.scale
+            stickerDictionary[timestamp] = sticker
+        }
         
         recognizer.scale = 1
         
@@ -221,7 +225,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             stickerDictionary[timestamp] = sticker
         }
 
-        customFace.transform = CGAffineTransformMakeRotation(recognizer.rotation)
+        customFace.transform = CGAffineTransformRotate(customFace.transform, recognizer.rotation)
         recognizer.rotation = 0
 
         debugStickers()
