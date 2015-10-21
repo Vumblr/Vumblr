@@ -43,16 +43,10 @@
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
                                         <animations/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="dtT-JK-Uf1" appends="YES" id="ZSD-3h-Eqh"/>
-                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="works" translatesAutoresizingMaskIntoConstraints="NO" id="vtr-pk-rRC">
                                         <rect key="frame" x="187" y="128" width="82" height="82"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="azX-PM-GRb" appends="YES" id="AEo-1U-G4k"/>
-                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj2-95-ING">
                                         <rect key="frame" x="189" y="103" width="78" height="19"/>
@@ -68,7 +62,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-hC-Mlr">
                                         <rect key="frame" x="8" y="527" width="87" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Merge Video"/>
@@ -76,7 +70,7 @@
                                             <segue destination="4sc-ds-v3e" kind="push" id="keF-EG-0dH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3T-dc-K3g">
                                         <rect key="frame" x="8" y="504" width="116" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Record and Save"/>
@@ -84,7 +78,7 @@
                                             <segue destination="ZV2-VC-Fjf" kind="push" id="dwb-ji-vX0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-ik-YBi">
                                         <rect key="frame" x="8" y="478" width="106" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Select and Play"/>
@@ -95,8 +89,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-wj-L6f">
                                         <rect key="frame" x="51" y="128" width="82" height="82"/>
                                         <animations/>
+                                        <gestureRecognizers/>
                                         <connections>
-                                            <segue destination="Qva-cR-9hk" kind="push" id="qAK-fr-1TG"/>
+                                            <outletCollection property="gestureRecognizers" destination="TVi-kN-v9g" appends="YES" id="eZh-cc-0qd"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vumblr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-Wc-f8S">
@@ -140,14 +135,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dtT-JK-Uf1">
+                <tapGestureRecognizer id="TVi-kN-v9g">
                     <connections>
-                        <segue destination="Qva-cR-9hk" kind="push" id="85h-V7-fNV"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="azX-PM-GRb" userLabel="worksGesture">
-                    <connections>
-                        <segue destination="S2E-ya-ajX" kind="push" id="1jO-Wp-ciN"/>
+                        <segue destination="rkN-jC-L6B" kind="push" id="cp9-eP-i0E"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -205,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUP-JM-Ou5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="943"/>
+            <point key="canvasLocation" x="645" y="1194"/>
         </scene>
         <!--Edit Video View Controller-->
         <scene sceneID="K1b-xT-2zO">
@@ -216,18 +206,18 @@
                         <viewControllerLayoutGuide type="bottom" id="juZ-WX-Wpb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5CA-ef-efc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Rectangle 1 + bg" translatesAutoresizingMaskIntoConstraints="NO" id="puS-ic-WMV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <animations/>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="Vumblr" customModuleProvider="target">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-KU-tN9" customClass="PlayerView" customModule="Vumblr" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="254"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your video will play here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6c-kx-OAQ">
-                                        <rect key="frame" x="66" y="20" width="190" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your video will play here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6c-kx-OAQ">
+                                        <rect key="frame" x="65" y="20" width="190" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,10 +225,6 @@
                                     </label>
                                 </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstItem="i6c-kx-OAQ" firstAttribute="centerX" secondItem="Wce-KU-tN9" secondAttribute="centerX" id="FXs-Xo-LWf"/>
-                                    <constraint firstItem="i6c-kx-OAQ" firstAttribute="top" secondItem="Wce-KU-tN9" secondAttribute="top" constant="20" symbolic="YES" id="Icf-EP-E8D"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlw-Cq-XEe">
                                 <rect key="frame" x="121" y="408" width="79" height="30"/>
@@ -355,21 +341,15 @@
                             <constraint firstItem="puS-ic-WMV" firstAttribute="leading" secondItem="5CA-ef-efc" secondAttribute="leading" id="Gi7-9E-sfd"/>
                             <constraint firstAttribute="trailing" secondItem="eP7-6D-CKA" secondAttribute="trailing" id="JAY-l2-lzj"/>
                             <constraint firstItem="eP7-6D-CKA" firstAttribute="leading" secondItem="5CA-ef-efc" secondAttribute="leading" id="KJ4-kn-SSX"/>
-                            <constraint firstItem="Wce-KU-tN9" firstAttribute="top" secondItem="PfW-B8-cfd" secondAttribute="bottom" id="LsG-Au-sK1"/>
                             <constraint firstItem="puS-ic-WMV" firstAttribute="top" secondItem="5CA-ef-efc" secondAttribute="top" id="bxh-RG-UjU"/>
+                            <constraint firstItem="Wce-KU-tN9" firstAttribute="top" secondItem="PfW-B8-cfd" secondAttribute="bottom" constant="64" id="efq-zK-gmF"/>
+                            <constraint firstAttribute="trailing" secondItem="Wce-KU-tN9" secondAttribute="trailing" id="gbi-c4-jDz"/>
                             <constraint firstAttribute="trailing" secondItem="puS-ic-WMV" secondAttribute="trailing" id="lom-cu-ZJT"/>
-                            <constraint firstItem="Wce-KU-tN9" firstAttribute="leading" secondItem="5CA-ef-efc" secondAttribute="leading" id="uUb-Lb-uxl"/>
-                            <constraint firstAttribute="trailing" secondItem="Wce-KU-tN9" secondAttribute="trailing" id="ul7-9b-pYE"/>
+                            <constraint firstItem="Wce-KU-tN9" firstAttribute="leading" secondItem="5CA-ef-efc" secondAttribute="leading" id="pzo-ta-0cP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aQn-u5-VmH">
-                        <barButtonItem key="rightBarButtonItem" title="Export" id="Tnw-iV-fpA">
-                            <connections>
-                                <action selector="onTapExport:" destination="Qva-cR-9hk" id="OfA-k8-xsc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationItem key="navigationItem" id="aQn-u5-VmH"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="playerView" destination="Wce-KU-tN9" id="1qj-k8-MkX"/>
                         <outlet property="trayArrowImageView" destination="pj0-54-8v1" id="UML-vz-jVc"/>
@@ -413,55 +393,87 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1552" y="295"/>
+            <point key="canvasLocation" x="1506" y="295"/>
         </scene>
         <!--Photos Collection View Controller-->
-        <scene sceneID="1Rl-Ee-FdM">
+        <scene sceneID="7qN-XL-SIR">
             <objects>
-                <collectionViewController id="S2E-ya-ajX" customClass="PhotosCollectionViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H1E-gP-DRO">
+                <viewController id="rkN-jC-L6B" customClass="PhotosCollectionViewController" customModule="Vumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bfo-qU-q8l"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugX-QP-fU7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Kc-mb-bcx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hlu-Yg-qcb">
-                            <size key="itemSize" width="90" height="90"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <imageView key="backgroundView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" image="Video" id="hkl-YA-czk">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </imageView>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="z5U-9E-aLr" customClass="PhotosCollectionViewCell" customModule="Vumblr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aax-sA-1xL">
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-BP-nNq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hlx-92-am1">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="sfs-B1-ufX" customClass="PhotosCollectionViewCell" customModule="Vumblr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-vr-URo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="kAh-vr-URo" id="jg6-Qz-rnm"/>
+                                            <segue destination="Qva-cR-9hk" kind="push" identifier="viewVideo" id="Rb6-Ry-p1x"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" image="Video" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-jd-y8k">
+                                <rect key="frame" x="132" y="482" width="56" height="56"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="AOK-Dw-6ar"/>
+                                    <constraint firstAttribute="height" constant="56" id="MPh-4B-k1p"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="Aax-sA-1xL" id="j8C-Ne-UvW"/>
+                                    <outletCollection property="gestureRecognizers" destination="cIc-fx-Oy3" appends="YES" id="0Sc-FJ-EdP"/>
                                 </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="S2E-ya-ajX" id="Y3I-3z-UIY"/>
-                            <outlet property="delegate" destination="S2E-ya-ajX" id="F8B-ce-py4"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="c3O-G8-kPG"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JaR-0J-hQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ugX-QP-fU7" firstAttribute="top" secondItem="kqR-jd-y8k" secondAttribute="bottom" constant="30" id="01c-JM-rlG"/>
+                            <constraint firstAttribute="trailing" secondItem="XU0-BP-nNq" secondAttribute="trailing" id="GcD-lx-7Jp"/>
+                            <constraint firstItem="ugX-QP-fU7" firstAttribute="top" secondItem="XU0-BP-nNq" secondAttribute="bottom" id="GfQ-Kc-QgP"/>
+                            <constraint firstItem="XU0-BP-nNq" firstAttribute="leading" secondItem="3Kc-mb-bcx" secondAttribute="leading" id="Gsr-vM-NOQ"/>
+                            <constraint firstItem="XU0-BP-nNq" firstAttribute="top" secondItem="3Kc-mb-bcx" secondAttribute="top" constant="20" id="L1x-ko-mjG"/>
+                            <constraint firstItem="kqR-jd-y8k" firstAttribute="centerX" secondItem="3Kc-mb-bcx" secondAttribute="centerX" id="Yi8-Hm-UOT"/>
+                            <constraint firstItem="XU0-BP-nNq" firstAttribute="top" secondItem="3Kc-mb-bcx" secondAttribute="top" id="y7N-CP-XMM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bpi-HW-VXy"/>
+                    <connections>
+                        <outlet property="collectionView" destination="XU0-BP-nNq" id="A4H-KG-IMt"/>
+                        <segue destination="Qva-cR-9hk" kind="push" identifier="viewVideo2" id="mfw-b5-wde"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93q-Ty-bZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cIc-fx-Oy3">
+                    <connections>
+                        <action selector="onTapVideo:" destination="rkN-jC-L6B" id="zHw-qV-kSo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1153" y="295"/>
+            <point key="canvasLocation" x="1091" y="295"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="e6L-P4-t3z">
@@ -504,7 +516,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPR-Me-OzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="949"/>
+            <point key="canvasLocation" x="981" y="1194"/>
         </scene>
         <!--Play Video View Controller-->
         <scene sceneID="HKW-sL-HUt">
@@ -534,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1HS-WF-iJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="-391"/>
+            <point key="canvasLocation" x="1321" y="1194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkt-Pg-kLA">
@@ -570,6 +582,6 @@
         <image name="works" width="82" height="82"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="85h-V7-fNV"/>
+        <segue reference="mfw-b5-wde"/>
     </inferredMetricsTieBreakers>
 </document>
