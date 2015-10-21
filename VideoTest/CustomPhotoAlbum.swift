@@ -56,12 +56,14 @@ class CustomPhotoAlbum {
             let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
             albumChangeRequest!.addAssets([assetPlaceholder!])
             }, completionHandler: nil)
+        
     }
     
     func saveVideo(videoURL: NSURL) {
         if assetCollection == nil {
             return   // If there was an error upstream, skip the save.
         }
+    
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideoAtFileURL(videoURL)
