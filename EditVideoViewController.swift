@@ -40,6 +40,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     var videoAsset: PHAsset?
     var assetCollection: PHAssetCollection = PHAssetCollection()
     var index: Int = 0
+    var stickerDictionary = [Int:Sticker]()   // key: timestamp, value: sticker
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         trayViewUpY =  CGFloat(560)
@@ -47,12 +49,13 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         //presentPicker()
 
         // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
         print("view will appear")
@@ -97,7 +100,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             newlyCreatedFace.userInteractionEnabled = true
-            customIconArray.append(newlyCreatedFace)
+            
             
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onCustomPan:")
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
@@ -118,17 +121,24 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
             newlyCreatedFace.center = CGPoint(x: originFaceCenter.x + translation.x,
                 y: originFaceCenter.y + translation.y + trayView.frame.origin.y)
         } else if sender.state == UIGestureRecognizerState.Ended {
+           
             setIconConstraint(newlyCreatedFace)
-            printAllFaceViews()
+            let timestamp = Int(NSDate().timeIntervalSince1970)
+            newlyCreatedFace.tag = timestamp
+            let sticker = Sticker()
+            sticker.timestamp = timestamp
+            sticker.image = newlyCreatedFace.image
+            sticker.scale = CGFloat(1.0)
+            sticker.rotation = CGFloat(0)
+            sticker.updateStickerRect(newlyCreatedFace, paddingTop: playViewGapY)
+            stickerDictionary[timestamp] = sticker
+            debugStickers()
         }
     }
 
     
     @IBAction func onCustomPan(sender: UIPanGestureRecognizer) {
-        //var point = sender.locationInView(view)
         let translation = sender.translationInView(view)
-        
-        
         if sender.state == UIGestureRecognizerState.Began {
             customFace = sender.view as! UIImageView
             customFaceCenter = customFace.center
@@ -144,18 +154,21 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
                 self.customFace.transform = CGAffineTransformMakeScale(1, 1 )
             })
             setIconConstraint(customFace)
-            printAllFaceViews()
+            let timestamp = customFace.tag
+            if let sticker = stickerDictionary[timestamp] {
+                sticker.updateStickerRect(customFace, paddingTop: playViewGapY)
+                stickerDictionary[timestamp] = sticker
+            }
+            debugStickers()
         }
     }
     
     
-    func printAllFaceViews() {
+    func debugStickers() {
         if let vBounds = videoBounds {
             print("videoFrameSize \(vBounds)")
-            for customFace in customIconArray {
-                print("customface image: \(customFace.image)")
-                print("customface center:\(customFace.center)")
-                print("customFace bounds: \(customFace.bounds)")
+            for (_, sticker) in stickerDictionary {
+                print(sticker.toString() + "\n")
             }
         }
     }
@@ -177,174 +190,49 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-    @IBAction func onCustomPinch(sender: UIPinchGestureRecognizer) {
-        customFace = sender.view as! UIImageView
-        let scale = sender.scale
-        customFace.transform = CGAffineTransformMakeScale(scale, scale)
+    @IBAction func onCustomPinch(recognizer: UIPinchGestureRecognizer) {
+        if let imageView = recognizer.view as? UIImageView {
+            imageView.transform = CGAffineTransformScale(imageView.transform,
+                recognizer.scale, recognizer.scale)
+            recognizer.scale = 1
+            
+            let timestamp = imageView.tag
+            if let sticker = stickerDictionary[timestamp] {
+                sticker.scale = recognizer.scale
+                stickerDictionary[timestamp] = sticker
+            }
+            debugStickers()
+        }
+        
     }
     
-    @IBAction func onCustomRotate(sender: UIRotationGestureRecognizer){
-        sender.view!.transform = CGAffineTransformRotate(sender.view!.transform, sender.rotation)
+    @IBAction func onCustomRotate(recognizer: UIRotationGestureRecognizer){
+        if let imageView = recognizer.view as? UIImageView{
+            imageView.transform = CGAffineTransformRotate(imageView.transform, recognizer.rotation)
+            recognizer.rotation = 0
+            
+            let timestamp = imageView.tag
+            if let sticker = stickerDictionary[timestamp] {
+                sticker.rotation = recognizer.rotation
+                stickerDictionary[timestamp] = sticker
+            }
+            debugStickers()
+        }
     }
     
     @IBAction func onCustomDoubleTap(sender: UITapGestureRecognizer) {
-        sender.view?.removeFromSuperview()
+        if let imageView = sender.view as? UIImageView {
+            let timestamp = imageView.tag
+            stickerDictionary.removeValueForKey(timestamp)
+            imageView.removeFromSuperview()
+        }
+        debugStickers()
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
-    
-//    func addSticker(image: UIImage) {
-//        print(selectedFileUrl)
-//        let mergeComposition : AVMutableComposition = AVMutableComposition()
-//        let trackVideo : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
-//        //var trackAudio : AVMutableCompositionTrack = mergeComposition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
-//        
-//        // 2. Add a bank for theme insertion later
-//        
-//        //trackVideo.insertTimeRange(range, ofTrack: VideoHelper.Static.blankTrack, atTime: kCMTimeZero, error: nil)
-//        
-//        // 3. Source tracks
-//        
-//        let sourceAsset = AVURLAsset(URL: selectedFileUrl!, options: nil)
-//        let sourceDuration = CMTimeRangeMake(kCMTimeZero, sourceAsset.duration)
-//        let vtrack: AVAssetTrack? = sourceAsset.tracksWithMediaType(AVMediaTypeVideo)[0] as AVAssetTrack
-////        let atrack: AVAssetTrack? = sourceAsset.tracksWithMediaType(AVMediaTypeAudio)[0] as AVAssetTrack
-//        
-//        if (vtrack == nil) {
-//            return
-//        }
-//        
-//        
-//        // Get the size of the video and set it as the renderWidth/Height
-//        let renderWidth = vtrack?.naturalSize.width
-//        let renderHeight = vtrack?.naturalSize.height
-//        
-//        
-//        // Set the endTime to the duration of the video and the range of to the duration of the video
-//        let insertTime = kCMTimeZero
-//        let endTime = sourceAsset.duration
-//        let range = sourceDuration
-//        
-//        // append tracks
-//        do {
-//            try trackVideo.insertTimeRange(sourceDuration, ofTrack: vtrack!, atTime: insertTime)
-//        }catch {
-//            print("error inserting time range")
-//        }
-//
-//        // 4. Add subtitles (we call it theme)
-//        
-//        let themeVideoComposition : AVMutableVideoComposition = AVMutableVideoComposition(propertiesOfAsset: sourceAsset)
-//        
-//        // 4.1 - Create AVMutableVideoCompositionInstruction
-//        
-//        let mainInstruction: AVMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
-//        mainInstruction.timeRange = range
-//        
-//        // 4.2 - Create an AVMutableVideoCompositionLayerInstruction for the video track and fix the orientation.
-//        
-//        let videolayerInstruction : AVMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: trackVideo)
-//        videolayerInstruction.setTransform(trackVideo.preferredTransform, atTime: insertTime)
-//        videolayerInstruction.setOpacity(0.0, atTime: endTime)
-//        
-//        // 4.3 - Add instructions
-//        
-//        mainInstruction.layerInstructions = NSArray(array: [videolayerInstruction]) as! [AVVideoCompositionLayerInstruction]
-//        
-//        themeVideoComposition.renderScale = 1.0
-//        themeVideoComposition.renderSize = CGSizeMake(renderWidth!, renderHeight!)
-//        themeVideoComposition.frameDuration = CMTimeMake(1, 30)
-//        themeVideoComposition.instructions = NSArray(array: [mainInstruction]) as! [AVVideoCompositionInstructionProtocol]
-//        
-//        // add the theme
-//        
-//        // setup variables
-//        
-//        // add text
-//        
-////        let title = String("💩")
-////        
-////        let titleLayer = CATextLayer()
-////        titleLayer.string = title
-////        titleLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-////        let fontName: CFStringRef = "Helvetica-Bold"
-////        let fontSize = CGFloat(36)
-////        titleLayer.font = CTFontCreateWithName(fontName, fontSize, nil)
-////        titleLayer.alignmentMode = kCAAlignmentCenter
-////        titleLayer.foregroundColor = UIColor.whiteColor().CGColor
-//        
-//        let imageLayer = CALayer()
-//        let image = image
-//        imageLayer.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-//        imageLayer.contents = image.CGImage
-//        imageLayer.contentsGravity = kCAGravityCenter
-////        imageLayer.masksToBounds = true
-//        
-//        let backgroundLayer = CALayer()
-//        backgroundLayer.frame = CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-//        backgroundLayer.masksToBounds = true
-//        backgroundLayer.addSublayer(imageLayer)
-//        
-//        // 2. set parent layer and video layer
-//        
-//        let parentLayer = CALayer()
-//        let videoLayer = CALayer()
-//        parentLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-//        videoLayer.frame =  CGRect(x: 0, y: 0, width: renderWidth!, height: renderHeight!)
-//
-//        
-//        parentLayer.addSublayer(backgroundLayer)
-//        parentLayer.addSublayer(videoLayer)
-//        parentLayer.addSublayer(imageLayer)
-//        
-//        // 3. make animation
-//        
-//        themeVideoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
-//        
-//        // Remove the file if it already exists (merger does not overwrite)
-//        let filename = "composition.mp4"
-//        let outputPath = NSTemporaryDirectory().stringByAppendingString(filename)
-//        let outputUrl = NSURL(fileURLWithPath: outputPath)
-//        let fileManager = NSFileManager.defaultManager()
-//        do {
-//         try fileManager.removeItemAtURL(outputUrl)
-//        } catch {
-//            print("Unable to remove item at \(outputUrl)")
-//        }
-//        
-//        // export to output url
-//        
-//        let exporter = AVAssetExportSession(asset: mergeComposition, presetName: AVAssetExportPresetHighestQuality)
-//        exporter!.outputURL = outputUrl
-//        print(exporter!.outputURL)
-//        exporter!.videoComposition = themeVideoComposition
-//        exporter!.outputFileType = AVFileTypeQuickTimeMovie
-//        exporter!.shouldOptimizeForNetworkUse = true
-//        exporter!.exportAsynchronouslyWithCompletionHandler({
-//            if (exporter!.error != nil) {
-//                print("Error")
-//                print(exporter!.error)
-//                print("Description")
-//                print(exporter!.description)
-//            }
-//            let player = AVPlayer(URL: exporter!.outputURL!)
-//            let playerController = AVPlayerViewController()
-//            
-//            playerController.player = player
-//            //        self.addChildViewController(playerController)
-//            self.playerView.addSubview(playerController.view)
-//            playerController.view.frame = self.playerView.bounds
-//            
-//            
-//            player.play()
-////            completionHandler(exporter.status.rawValue)
-//        })
-//        
-//
-//    }
     
     func presentPicker() {
         let ipcVideo = UIImagePickerController()
@@ -365,7 +253,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         playerController.player = player
-//        self.addChildViewController(playerController)
+
         playerView.addSubview(playerController.view)
         playerController.view.frame = playerView.bounds
     
@@ -412,17 +300,7 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
 
     @IBAction func onClickAddSticker(sender: AnyObject) {
         print("Added sticker")
-//        addSticker(UIImage(named: "happy")!)
+
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
