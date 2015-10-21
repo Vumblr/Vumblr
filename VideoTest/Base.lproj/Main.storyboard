@@ -46,6 +46,7 @@
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="works" translatesAutoresizingMaskIntoConstraints="NO" id="vtr-pk-rRC">
                                         <rect key="frame" x="187" y="128" width="82" height="82"/>
+                                        <animations/>
                                         <gestureRecognizers/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj2-95-ING">
@@ -314,6 +315,14 @@
                                             <outletCollection property="gestureRecognizers" destination="X1h-Vn-L9U" appends="YES" id="3BG-83-LTj"/>
                                         </connections>
                                     </imageView>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame_test1" translatesAutoresizingMaskIntoConstraints="NO" id="ELC-RX-wmy">
+                                        <rect key="frame" x="183" y="8" width="70" height="45"/>
+                                        <animations/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="DL3-yx-RJ3" appends="YES" id="hxh-bS-RaP"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.27537165019999998" blue="0.34795205260000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -398,6 +407,11 @@
                         <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="uq4-PK-t71"/>
                     </connections>
                 </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="DL3-yx-RJ3">
+                    <connections>
+                        <action selector="onPanIconGesture:" destination="Qva-cR-9hk" id="bOm-T5-5ZO"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1506" y="295"/>
         </scene>
@@ -415,6 +429,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-BP-nNq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hlx-92-am1">
                                     <size key="itemSize" width="90" height="90"/>
@@ -432,10 +447,13 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-vr-URo">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <animations/>
                                                 </imageView>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <animations/>
                                         <connections>
                                             <outlet property="imageView" destination="kAh-vr-URo" id="jg6-Qz-rnm"/>
                                             <segue destination="Qva-cR-9hk" kind="push" identifier="viewVideo" id="Rb6-Ry-p1x"/>
@@ -445,6 +463,7 @@
                             </collectionView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" image="Video" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-jd-y8k">
                                 <rect key="frame" x="132" y="482" width="56" height="56"/>
+                                <animations/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="AOK-Dw-6ar"/>
@@ -455,6 +474,7 @@
                                 </connections>
                             </imageView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ugX-QP-fU7" firstAttribute="top" secondItem="kqR-jd-y8k" secondAttribute="bottom" constant="30" id="01c-JM-rlG"/>
@@ -581,6 +601,7 @@
         <image name="dead" width="56" height="56"/>
         <image name="down_arrow" width="20" height="14"/>
         <image name="excited" width="56" height="56"/>
+        <image name="frame_test1" width="300" height="169"/>
         <image name="happy" width="56" height="56"/>
         <image name="sad" width="56" height="56"/>
         <image name="tongue" width="56" height="56"/>
