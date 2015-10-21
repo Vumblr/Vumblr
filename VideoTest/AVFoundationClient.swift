@@ -143,6 +143,7 @@ class AVFoundationClient {
             exporter.outputURL = url
             exporter.outputFileType = AVFileTypeQuickTimeMovie
             exporter.shouldOptimizeForNetworkUse = true
+            exporter.videoComposition = videoCompositionInstructions
             
             // Perform the Export
             exporter.exportAsynchronouslyWithCompletionHandler() {
