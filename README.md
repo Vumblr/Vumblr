@@ -10,11 +10,11 @@ Time spent: ``
 
 ##### Core
 - [x] User can import a video from camera roll
-- [ ] Record a video
+- [x] Record a video
 - [x] add still images on top of video
 - [x] Animation when the app launch and on clicking on a button
 - [ ] access your previous works
-- [ ] encoding to a new video ( save as new video ) 
+- [x] encoding to a new video ( save as new video ) 
 
 ##### Bonus
 - [ ] Upload to Youtube
@@ -27,6 +27,10 @@ Time spent: ``
 - [ ] can add drawing
 - [ ] undersand how keyframe work and try using it 
 
+### Walkthrough
+
+![Video Walkthrough]
+(VumblrGIF.gif)
 
 ![Wireframes]
 (UIApp.png)
