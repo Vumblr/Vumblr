@@ -220,7 +220,7 @@
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.17254901960784313" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-6D-CKA">
-                                <rect key="frame" x="-6" y="345" width="320" height="222"/>
+                                <rect key="frame" x="0.0" y="282" width="320" height="222"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="pj0-54-8v1">
                                         <rect key="frame" x="150" y="8" width="20" height="14"/>
@@ -239,7 +239,7 @@
                                             <outletCollection property="gestureRecognizers" destination="7sX-Fg-chG" appends="YES" id="R9C-5D-NwA"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-gU-nGf">
+                                    <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-gU-nGf">
                                         <rect key="frame" x="130" y="143" width="60" height="60"/>
                                         <animations/>
                                         <gestureRecognizers/>
@@ -299,10 +299,14 @@
                                             <outletCollection property="gestureRecognizers" destination="X1h-Vn-L9U" appends="YES" id="3BG-83-LTj"/>
                                         </connections>
                                     </imageView>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame_test1" translatesAutoresizingMaskIntoConstraints="NO" id="ELC-RX-wmy">
-                                        <rect key="frame" x="183" y="8" width="70" height="45"/>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="frame_test1" translatesAutoresizingMaskIntoConstraints="NO" id="ELC-RX-wmy">
+                                        <rect key="frame" x="125" y="150" width="70" height="45"/>
                                         <animations/>
                                         <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="L12-y4-Nk3"/>
+                                            <constraint firstAttribute="height" constant="45" id="qOH-Zs-Oiy"/>
+                                        </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="DL3-yx-RJ3" appends="YES" id="hxh-bS-RaP"/>
                                         </connections>
@@ -314,10 +318,13 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="AYh-gU-nGf" firstAttribute="centerX" secondItem="eP7-6D-CKA" secondAttribute="centerX" id="17H-fQ-Jmn"/>
+                                    <constraint firstItem="ELC-RX-wmy" firstAttribute="centerY" secondItem="eP7-6D-CKA" secondAttribute="centerY" constant="61.5" id="LGT-Du-6vk"/>
+                                    <constraint firstItem="1FW-Xc-rbs" firstAttribute="leading" secondItem="ELC-RX-wmy" secondAttribute="trailing" constant="43" id="SmV-dm-IPM"/>
                                     <constraint firstAttribute="trailing" secondItem="1FW-Xc-rbs" secondAttribute="trailing" constant="22" id="Zyb-hN-cyj"/>
                                     <constraint firstItem="ztZ-GX-hBx" firstAttribute="centerX" secondItem="eP7-6D-CKA" secondAttribute="centerX" id="c53-K1-ibC"/>
                                     <constraint firstItem="Yb2-hu-Cbd" firstAttribute="leading" secondItem="eP7-6D-CKA" secondAttribute="leading" constant="23" id="cBZ-go-EVh"/>
                                     <constraint firstAttribute="trailing" secondItem="TDc-DF-OkI" secondAttribute="trailing" constant="22" id="cdp-db-h5f"/>
+                                    <constraint firstItem="ELC-RX-wmy" firstAttribute="leading" secondItem="Fl6-cu-xNo" secondAttribute="trailing" constant="42" id="nI6-ML-YhS"/>
                                     <constraint firstItem="Fl6-cu-xNo" firstAttribute="leading" secondItem="eP7-6D-CKA" secondAttribute="leading" constant="23" id="pIu-lD-I9E"/>
                                     <constraint firstItem="pj0-54-8v1" firstAttribute="centerX" secondItem="eP7-6D-CKA" secondAttribute="centerX" id="xgm-JV-eXP"/>
                                 </constraints>

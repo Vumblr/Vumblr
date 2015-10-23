@@ -290,7 +290,8 @@ class EditVideoViewController: UIViewController, UIImagePickerControllerDelegate
     
         videoBounds = playerView.bounds
 
-        
+        //stickerDictionary.removeAll()
+        stickerDictionary = [Int:Sticker]()
         player.play()
         
     }
